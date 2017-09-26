@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <link rel="stylesheet" type="text/css" href="index.css"><link>
+        <meta charset="utf-8"/>
+        <meta name='viewport' content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1,user-scalable=no"/>
+        <title>Joseph的紅色披風</title>
+        <script type="text/javascript" src="phaser/phaser.js"></script>
+    </head>
+    <body>
+        <div id="VerticalBox">
+            <script>
+                window.fbAsyncInit = function() {
+                    FB.init({
+                        appId      : '139779809895429',
+                        xfbml      : true,
+                        version    : 'v2.9'
+                    });
+                    FB.AppEvents.logPageView();
+                };
+                (function(d, s, id){
+                     var js, fjs = d.getElementsByTagName(s)[0];
+                     if (d.getElementById(id)) {return;}
+                     js = d.createElement(s);
+                     js.id = id;
+                     js.src = "//connect.facebook.net/en_US/sdk.js";
+                     fjs.parentNode.insertBefore(js, fjs);
+               }(document, 'script', 'facebook-jssdk'));
+            </script>
+            <div id="Header">
+                <div id="FBIcon">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.gicumastudio.com/">
+                        <img src="icons/icon_facebook.png" alt="分享至FB" width="13" height="24" border="0">
+                    </a> 
+                </div>
+                <div id="HomeIcon"> 
+                    <a href="https//www.gicumastudio.com/">
+                        <img src="icons/icon_home.png" alt="極熊" width="27" height="24" border="0">
+                    </a>  
+                </div>
+            </div>
+            <!--  include the main game file  -->
+            <div id="MainBody">
+                <script id="PhaserScript" src="Main.js"></script>
+            </div>
+            <div id="Footer"></div>
+        </div>
+    </body>
+</html>

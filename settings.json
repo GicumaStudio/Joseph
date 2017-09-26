@@ -1,0 +1,38 @@
+{
+  "version": "1.6.02", 
+  "check_loading":false,
+  "debug_jump": "DogSchoolScene",
+  "loading_texts":{
+    "0":"Joseph～走吧！",
+    "1":"準備開始今天的冒險"
+  },
+  "starting_texts":{
+    "0":"Joseph是我的導盲犬，我們是合作無間的夥伴；",
+    "1":"儘管眼前是一片黑暗，有Joseph在身邊，步伐終於不再緩慢。"
+  },
+  "game_menu":{
+    "logo_delay": 2800,
+    "button_delay": 3150,
+    "logo_speed": 6000,
+    "button_speed": 6000
+  },
+  "home_scene":{
+    "dialog_delay": 1000,
+    "dialog_speed": 2000,
+    "dialog_txt_extra_delay": 200,
+    "dialog_txt_speed": 2000,
+    "dialog_txt_2_extra_delay": 400,
+    "dialog_txt_2_extra_delay_space": 200,
+    "icon_delay": 200,
+    "icon_speed": 1800
+  },
+  "work_choose_scene":{
+    "joseph_in_speed": 1250,
+    "option_timer_delay": 1000
+  },
+  "arcade_scene":{
+    "paw_blink_speed": 1400,
+    "option_in_delay": 2000,
+    "txt_speed":2000
+  }
+}
