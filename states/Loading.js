@@ -432,25 +432,14 @@ Loading.prototype = {
     game.load.image('arcade_description_box', 'assets/images/arcade/motor-description.png');
 
     // Crossroad Scene
-    // game.load.image('crossroad_joseph_bad', 'assets/images/joseph/Joseph_Bad.png');
-    // game.load.image('crossroad_joseph_good', 'assets/images/joseph/Joseph_Good.png');
-    // game.load.image('crossroad_bg_good', 'assets/images/crossroad/bgs/crossroad_ord.png');
-    // game.load.image('crossroad_bg_bad', 'assets/images/crossroad/bgs/crossroad_bad.png');
-    // game.load.image('crossroad_bg_bright', 'assets/images/arcade/bgs/storefronts_bright.png');
-    // game.load.image('arcade_status', 'assets/images/arcade/status.png');
-    // game.load.image('arcade_bad_mood', 'assets/images/arcade/mood.png');
-    // game.load.image('arcade_sun_icon', 'assets/images/arcade/sunny.png');
-    // game.load.image('arcade_time_1015', 'assets/images/arcade/1015.png');
-    // game.load.image('arcade_time_1020', 'assets/images/arcade/1020.png');
-    // game.load.image('arcade_black_back', 'assets/images/arcade/back.png');
-    // game.load.image('arcade_grey_cover', 'assets/images/arcade/cover.png');
-    // game.load.image('arcade_dialogue_paw', 'assets/images/arcade/dialogue-footprint.png');
-    // game.load.image('arcade_dialogue_box', 'assets/images/arcade/dialogue.png');
-    // game.load.image('arcade_next', 'assets/images/arcade/next.png');
-    // game.load.image('arcade_next_hover', 'assets/images/arcade/next_hover.png');
-    // game.load.image('arcade_option_box', 'assets/images/arcade/Option.png');
-    // game.load.image('arcade_situation_grey_back', 'assets/images/arcade/Situation.png');
-    // game.load.image('arcade_description_box', 'assets/images/arcade/motor-description.png');
+    game.load.image('crossroad_bg_good', 'assets/images/work/crossroad/bgs/crossroad_01.png');
+    game.load.image('crossroad_bg_good_0', 'assets/images/work/crossroad/bgs/crossroad_02.png');
+    game.load.image('crossroad_bg_good_1', 'assets/images/work/crossroad/bgs/crossroad_bright_01.png');
+    game.load.image('crossroad_bg_good_2', 'assets/images/work/crossroad/bgs/crossroad_bright_02.png');
+    game.load.image('crossroad_bg_bad', 'assets/images/work/crossroad/bgs/crossroad_bad_01.png');
+    game.load.image('crossroad_bg_bad_0', 'assets/images/work/crossroad/bgs/crossroad_bad_02.png');
+    game.load.image('crossroad_bg_bad_1', 'assets/images/work/crossroad/bgs/crossroad_bad_03.png');
+    game.load.image('crossroad_bg_bad_2', 'assets/images/work/crossroad/bgs/crossroad_bad_04.png');
 
     // Mrt Station
     game.load.image('mrtstation_bg_good', 'assets/images/work/mrt_station/bgs/MRT_station_ord.png');

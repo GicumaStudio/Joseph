@@ -672,11 +672,20 @@ ArcadeScene.prototype = {
 
   switchDialogueTxt:function(){
     this.dialogue.currentTxtInd ++;
+
+    // check if 2 \n
+    if(this.dialogue.currentTxt[this.dialogue.currentTxtInd].split('\n').length > 2){
+      this.dialogue_txt.y = this.dialogue.txtLocation.y - thirdLineOffset;
+    }else{
+      this.dialogue_txt.y = this.dialogue.txtLocation.y;
+    }
+
     this.dialogue_txt.text = this.dialogue.currentTxt[this.dialogue.currentTxtInd]; 
     this.dialogueTxtIn.start();
   },
 
   dialogueOnClick: function (){
+    // console.log("dialogue on click");
     // stop paw blinking
     this.stopPawBlink();
     this.disableButton(this.dialogue_button);
@@ -707,7 +716,7 @@ ArcadeScene.prototype = {
 
   setRandomEvent:function(){
     // set random number, test first
-    // this.choseEventNumber = 3;
+    // this.choseEventNumber = 1;
     // this.choseEventNumber = 0;
     this.choseEventNumber = utils.getRandomInt(this.events.size);
 

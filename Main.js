@@ -20,7 +20,8 @@ sceneSwitchSpeed = 300,
 sceneSwitchDelay = 300,
 settingsJSON,
 pathIndex,
-sceneIndex;
+sceneIndex,
+thirdLineOffset = 30;
 
 Main.prototype = {
     preload:function(){

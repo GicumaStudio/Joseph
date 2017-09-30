@@ -678,6 +678,12 @@ BreakfastScene.prototype = {
 
   switchDialogueTxt:function(){
     this.dialogue.currentTxtInd ++;
+    // check if 2 \n
+    if(this.dialogue.currentTxt[this.dialogue.currentTxtInd].split('\n').length > 2){
+      this.dialogue_txt.y = this.dialogue.txtLocation.y - thirdLineOffset;
+    }else{
+      this.dialogue_txt.y = this.dialogue.txtLocation.y;
+    }
     this.dialogue_txt.text = this.dialogue.currentTxt[this.dialogue.currentTxtInd]; 
     this.dialogueTxtIn.start();
   },

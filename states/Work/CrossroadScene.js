@@ -2,15 +2,16 @@ var CrossroadScene = function() {};
 
 // ***********
 // TODO:
+// Event, smaller chars
 // 
 // ***********
 
 CrossroadScene.prototype = {
   nextScene:'CrossroadTransition',
   background_good:{
-    size: 2,
+    size: 4,
     0:{
-      name:'mrtstation_bg_good',
+      name:'crossroad_bg_good',
       sprite: null,
       position:{
         x: 0,y: 0
@@ -20,20 +21,40 @@ CrossroadScene.prototype = {
       tweenOut: null
     },
     1:{
-      name:'mrtstation_bg_good_gate_woman',
+      name:'crossroad_bg_good_1',
       sprite: null,
       position:{
-        x: 784,y: 855
+        x: 0,y: 0
       },
-      center_anchor: true,
+      center_anchor: false,
+      tweenIn: null,
+      tweenOut: null
+    },
+    2:{
+      name:'crossroad_bg_good_0',
+      sprite: null,
+      position:{
+        x: 0,y: 0
+      },
+      center_anchor: false,
+      tweenIn: null,
+      tweenOut: null
+    },
+    3:{
+      name:'crossroad_bg_good_2',
+      sprite: null,
+      position:{
+        x: 0,y: 0
+      },
+      center_anchor: false,
       tweenIn: null,
       tweenOut: null
     }
   },
   background_bad:{
-    size: 2,
+    size: 4,
     0:{
-      name:'mrtstation_bg_bad',
+      name:'crossroad_bg_bad',
       sprite: null,
       position:{
         x: 0,y: 0
@@ -43,12 +64,32 @@ CrossroadScene.prototype = {
       tweenOut: null
     },
     1:{
-      name:'mrtstation_bg_bad_gate_woman',
+      name:'crossroad_bg_bad_0',
       sprite: null,
       position:{
-        x: 784,y: 855
+        x: 0,y: 0
       },
-      middle_anchor: true,
+      middle_anchor: false,
+      tweenIn: null,
+      tweenOut: null
+    },
+    2:{
+      name:'crossroad_bg_bad_2',
+      sprite: null,
+      position:{
+        x: 0,y: 0
+      },
+      middle_anchor: false,
+      tweenIn: null,
+      tweenOut: null
+    },
+    3:{
+      name:'crossroad_bg_bad_1',
+      sprite: null,
+      position:{
+        x: 0,y: 0
+      },
+      middle_anchor: false,
       tweenIn: null,
       tweenOut: null
     }
@@ -91,12 +132,12 @@ CrossroadScene.prototype = {
   brighter_items:{
     size: 4,
     foreGroundId: 1, // starting from this is foreground
-    prefix: 'mrtstation_brighter_', 
+    prefix: 'crossroad_brighter_', 
     item:{
       0:{
-        name:'button',
+        name:'ats',
         position:{
-          x: 1512,y: 385
+          x: 423,y: 675.5
         },
         description:{
           group: null,
@@ -106,16 +147,16 @@ CrossroadScene.prototype = {
           box_txt: null,
           groupTweenIn: null,
           groupTweenOut: null,
-          txt:'捷運站內電梯皆有貼心的點字設計，\n幫助視障朋友辨識按鈕。'
+          txt:'常見於紅綠燈桿上，南北向－布穀聲、\n東西向－鳥叫聲、行人專用－蟋蟀聲，\n另配有隨身感應器，當視障朋友靠近時會\n主動啟動號誌。（但使用成效似乎有待商權）'
         },
         button: null,
         tweenIn: null,
         tweenOut: null
       },
       1:{
-        name:'gate',
+        name:'bike',
         position:{
-          x:668,y: 670
+          x:1426.5,y: 696.5
         },
         description:{
           group: null,
@@ -125,16 +166,16 @@ CrossroadScene.prototype = {
           box_txt: null,
           boxTweenIn: null,
           boxTweenOut: null,
-          txt:'通常設置在服務台旁，閘門上有服務鈴，\n方便聯繫站務人員。'
+          txt:'飛快移動的腳踏車，可能碾壓到視障朋友\n與導盲犬的腳，或是造成擦撞，而一旦\n導盲杖不小心捲進車輪，更可能造成雙方\n的重大傷害。'
         },
         button: null,
         tweenIn: null,
         tweenOut: null
       },
       2:{
-        name:'guide_bricks',
+        name:'construction',
         position:{
-          x: 844,y: 854
+          x: 1503,y: 203
         },
         description:{
           group: null,
@@ -144,16 +185,16 @@ CrossroadScene.prototype = {
           box_txt: null,
           boxTweenIn: null,
           boxTweenOut: null,
-          txt:'導盲磚可以引導視障朋友\n至無障礙閘門處進站搭乘。'
+          txt:'巨大聲響可能影響視障者判斷周遭環境，\n我們可以主動協助他們安全過馬路。'
         },
         button: null,
         tweenIn: null,
         tweenOut: null
       },
       3:{
-        name:'manager',
+        name:'pedestrian',
         position:{
-          x: 681,y: 384
+          x: 1199.5,y: 777.5
         },
         description:{
           group: null,
@@ -163,7 +204,7 @@ CrossroadScene.prototype = {
           box_txt: null,
           boxTweenIn: null,
           boxTweenOut: null,
-          txt:'當身心障礙的朋友進站，\n站務人員通常會主動提供協助。'
+          txt:'遇見視障朋友及導盲犬時，\n記得「四不一問」喔！'
         },
         button: null,
         tweenIn: null,
@@ -342,18 +383,29 @@ CrossroadScene.prototype = {
     this.setOptionABEvents();
 
     utils.addExistingMultiple([this.brownBG,
-      this.background_good[0].sprite, this.background_bad[0].sprite,
+      this.background_good[0].sprite, this.background_good[1].sprite,
+      this.background_bad[0].sprite, this.background_bad[1].sprite, 
       this.status_box, this.status_time_1015, this.status_time_1020, this.sunny_icon]);
+
+    // for (var i = 1; i < this.background_good.size; i++) {
+    //   utils.addExistingMultiple([this.background_good[i].sprite]);
+    // }
+    // for (var i = 1; i < this.background_bad.size; i++) {
+    //   utils.addExistingMultiple([this.background_bad[i].sprite]);
+    // }
 
     this.addItemButtons();
 
+    utils.addExistingMultiple([ this.background_good[2].sprite, this.background_good[3].sprite, this.background_bad[2].sprite,this.background_bad[3].sprite]);
+
     utils.addExistingMultiple([this.joseph_good, this.joseph_bad]);
-    for (var i = 1; i < this.background_good.size; i++) {
-      utils.addExistingMultiple([this.background_good[i].sprite]);
-    }
-    for (var i = 1; i < this.background_bad.size; i++) {
-      utils.addExistingMultiple([this.background_bad[i].sprite]);
-    }
+
+    // for (var i = 1; i < this.background_good.size; i++) {
+    //   utils.addExistingMultiple([this.background_good[i].sprite]);
+    // }
+    // for (var i = 1; i < this.background_bad.size; i++) {
+    //   utils.addExistingMultiple([this.background_bad[i].sprite]);
+    // }
 
     // utils.addExistingMultiple([this.
     utils.addExistingMultiple([this.bad_mood, this.grey_cover, this.situation_grey_back, this.choseEvent.sprite, 
@@ -483,7 +535,11 @@ CrossroadScene.prototype = {
     // tween in bg
     // game.add.tween(this.bg_good).to({alpha:1}, this.tween.speed, this.tween.method.linear, true);
     for (var i = 0; i < this.background_good.size; i++) {
-      this.background_good[i].tweenIn = game.add.tween(this.background_good[i].sprite).to({alpha:1}, this.tween.speed, this.tween.method.linear, true); 
+      if(i == 1){
+        this.background_good[i].tweenIn = game.add.tween(this.background_good[i].sprite).to({alpha:1}, this.tween.speed, this.tween.method.linear, false); 
+      }else{
+        this.background_good[i].tweenIn = game.add.tween(this.background_good[i].sprite).to({alpha:1}, this.tween.speed, this.tween.method.linear, true); 
+      }
     }
     game.add.tween(this.status_box).to({alpha:1, y:0}, this.tween.startSpeed, this.tween.method.cubicOut, true, this.tween.startDelay);
     game.add.tween(this.sunny_icon).to({alpha:1, y:24}, this.tween.startSpeed, this.tween.method.cubicOut, true, this.tween.startDelay);
@@ -628,6 +684,12 @@ CrossroadScene.prototype = {
 
   switchDialogueTxt:function(){
     this.dialogue.currentTxtInd ++;
+    // check if 2 \n
+    if(this.dialogue.currentTxt[this.dialogue.currentTxtInd].split('\n').length > 2){
+      this.dialogue_txt.y = this.dialogue.txtLocation.y - thirdLineOffset;
+    }else{
+      this.dialogue_txt.y = this.dialogue.txtLocation.y;
+    }
     this.dialogue_txt.text = this.dialogue.currentTxt[this.dialogue.currentTxtInd]; 
     this.dialogueTxtIn.start();
   },
@@ -839,6 +901,7 @@ CrossroadScene.prototype = {
       this.joseph_bad.alpha = 1;
       this.badMoodIn.start();
     }else{
+      this.background_good[1].sprite.alpha = 1
       //  
       // this.bg_bright.alpha = 1;
     }
