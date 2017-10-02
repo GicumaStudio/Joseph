@@ -118,7 +118,7 @@ CrossroadScene.prototype = {
     },
     txt:{
       start:[
-      '走一走都熱起來了，來捷運站吹個冷氣正好。'
+      '天氣這麼好，果然還是走在陽光下最舒服了。\nJoseph也最喜歡曬太陽了對吧～'
       ]
     }
   },
@@ -213,22 +213,12 @@ CrossroadScene.prototype = {
     }
   }, 
   events:{
-    size: 4,
-    bad_mood_list:[3],
+    size: 3,
+    bad_mood_list:[2],
     0:{
       name: "crowded_gate",
-      number: "09",
-      starting_txts:[
-        '「哇！這個時間怎麼這麼多人啊，\n全靠你囉 Joseph，趕緊找到閘門進站吧！」',
-        '上班時間的捷運站裡，大家的腳步都很急促。',
-        'Joseph 臨危不亂地領著你順著人潮魚貫前進。'
-      ],
-      options: null,
-      ending_txts:null 
-    },
-    1:{
-      name: "elevator_down",
-      number: "10",
+      number: "01",
+      score:{A: +1,B:0} ,
       starting_txts:[
         '「奇怪，怎麼等了這麼久電梯都還沒到？」',
       ],
@@ -236,7 +226,29 @@ CrossroadScene.prototype = {
         Q:'如果再等下去可能就會錯過這一班捷運了，\n短短五分鐘也許就是能否破紀錄的決定性差距，\n你決定……',
         A:'[ 「還是去搭電扶梯好了」（果斷放棄，去搭電扶梯） ]',
         B:'[ 「應該快到了，再等一下吧」（不死心繼續等電梯） ]',
-        bad_option:'B'
+        bad_option:'None'
+      },
+      ending_txts:{
+        A:['想想可能是電梯故障了，\n所以就決定搭電扶梯，',
+        '想起以前有次搭電扶梯還不小心踩到 Joseph，\n嘴角不禁微微的上揚：',
+        '「那次你連一聲都沒哼，真是我的好小子！」'],
+        B:['「叮！」電梯終於到了，\n但是出來的是一群嬉鬧的國中生，',
+        '晃動的書包撞擊了你與 Joseph，\n力道雖不致受傷，卻差點讓你站不穩腳步，',
+        '「這群小朋友也太沒有禮貌了吧！」\n喃喃抱怨後想進電梯，卻發現門又關上了。']
+      }
+    },
+    1:{
+      name: "elevator_down",
+      number: "02",
+      score:{A: 1,B:+3} ,
+      starting_txts:[
+        '「奇怪，怎麼等了這麼久電梯都還沒到？」',
+      ],
+      options:{
+        Q:'如果再等下去可能就會錯過這一班捷運了，\n短短五分鐘也許就是能否破紀錄的決定性差距，\n你決定……',
+        A:'[ 「還是去搭電扶梯好了」（果斷放棄，去搭電扶梯） ]',
+        B:'[ 「應該快到了，再等一下吧」（不死心繼續等電梯） ]',
+        bad_option:'None'
       },
       ending_txts:{
         A:['想想可能是電梯故障了，\n所以就決定搭電扶梯，',
@@ -249,7 +261,8 @@ CrossroadScene.prototype = {
     },
     2:{
       name: "staff_help",
-      number: "11",
+      number: "03",
+      score: -2,
       starting_txts:[
         '上班時間的捷運站真是擠得讓人喘不過氣，\n正當你擔心會趕不上這班捷運時，有人說：',
         '「先生您好，我是捷運的站務人員，\n需要我幫您引導到月台前面嗎？」',
@@ -257,19 +270,6 @@ CrossroadScene.prototype = {
       ],
       options:null,
       ending_txts:null
-    },
-    3:{
-      name: "people_pet_dog",
-      number: "12",
-      starting_txts:[
-        '「欸！是狗狗耶！好大隻好可愛喔！」\n「真的耶！過來這邊！」',
-        'Joseph似乎認定他們是障礙，\n想要往旁邊移動，卻被人潮阻礙著。',
-        '正當你想要出聲制止他們影響Joseph前進時，\n卻猛地踩空，從捷運月台邊摔落到了軌道上。',
-        '所幸捷運站務人員很快就發現了，\n幾個人合力把你從底下救了上來。',
-        'Joseph 緩緩走回你身邊，像做錯事一樣沮喪。\n你摸摸牠的頭，希望能讓牠知道你沒有怪牠。'
-      ],
-      options: null,
-      ending_txts:null 
     }
   },
   choseEventNumber: -1,
@@ -469,7 +469,8 @@ CrossroadScene.prototype = {
       // make box and txt
       this.brighter_items.item[i].description.box = game.make.sprite(0, 0, this.description_box);
 
-      this.box_txt_style = {font: "38px SansCJK", fill: 'White'};
+      this.box_txt_style = {font: "32px SansCJK", fill: 'White'};
+      // this.box_txt_style = {font: "38px SansCJK", fill: 'White'};
       this.brighter_items.item[i].description.box_txt = game.make.text(0, 0, this.brighter_items.item[i].description.txt, this.box_txt_style);
 
       // center box and box_txt, zero alpha description group 
@@ -665,6 +666,14 @@ CrossroadScene.prototype = {
   startDialogueBox:function(){
     this.dialogue.currentTxtInd = 0
     this.dialogue_txt.text = this.dialogue.currentTxt[this.dialogue.currentTxtInd];
+
+    // check if 2 \n
+    if(this.dialogue.currentTxt[this.dialogue.currentTxtInd].split('\n').length > 2){
+      this.dialogue_txt.y = this.dialogue.txtLocation.y - thirdLineOffset;
+    }else{
+      this.dialogue_txt.y = this.dialogue.txtLocation.y;
+    }
+    
     this.dialogueTxtIn.start();
     this.pawIn.start();
     this.dialogueBoxIn.start();
@@ -726,7 +735,6 @@ CrossroadScene.prototype = {
   setRandomEvent:function(){
     // set random number, test first
     // this.choseEventNumber = 3;
-    // this.choseEventNumber = 0;
     this.choseEventNumber = utils.getRandomInt(this.events.size);
 
     // set mood in front if no options
@@ -734,6 +742,7 @@ CrossroadScene.prototype = {
       if (this.events.bad_mood_list.includes(this.choseEventNumber)){
         this.mood.status = 'bad'; // get the mood 
       }
+      total_score += this.events[this.choseEventNumber].score;
     }
     
     this.choseEvent.sprite = game.make.sprite(960, 540, 'event_' + this.events[this.choseEventNumber].number);
@@ -790,14 +799,19 @@ CrossroadScene.prototype = {
   optionTxtUpA:function(txt){
     this.option.currentAnswer = 'A';
     // set mood
-    if(this.events[this.choseEventNumber].options.bad_option == 'A'){
+    if(this.events[this.choseEventNumber].options.bad_option == 'A' || this.events[this.choseEventNumber].options.bad_option == 'Both'){
       this.mood.status = 'bad'; 
     }
+    total_score += this.events[this.choseEventNumber].score.A;
     this.finishOptionTxts();
   },
 
   optionTxtUpB:function(){
     this.option.currentAnswer = 'B';
+    if(this.events[this.choseEventNumber].options.bad_option == 'B' || this.events[this.choseEventNumber].options.bad_option == 'Both'){
+      this.mood.status = 'bad'; 
+    }
+    total_score += this.events[this.choseEventNumber].score.B;
     this.finishOptionTxts();
   },
 

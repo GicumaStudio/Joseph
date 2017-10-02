@@ -206,7 +206,8 @@ ArcadeScene.prototype = {
     tweenOut: null
   },
   events:{
-    size: 8,
+    size: 7,
+    // size: 8,
     bad_mood_list:[0,1,2,3,4,5,6,7],
     0:{
       name: "step_drop",
@@ -286,22 +287,24 @@ ArcadeScene.prototype = {
       options: null,
       ending_txts:null, 
     },
+    // 6:{
+    //   name: "broken_slope",
+    //   number: "68",
+    //   score: -1,
+    //   starting_txts:[
+    //     'tototototot' 
+    //   ],
+    //   options: null,
+    //   ending_txts:null, 
+    // },
     6:{
-      name: "broken_slope",
-      number: "68",
-      score: -1,
-      starting_txts:[
-        'tototototot' 
-      ],
-      options: null,
-      ending_txts:null, 
-    },
-    7:{
       name: "brpe",
       number: "69",
       score: -3,
       starting_txts:[
-        'tototototot' 
+        '「啊！小心！」\n驚呼聲伴隨機械摩擦的聲音響起，',
+        'Joseph往左邊一閃，\n你險些跌到後穩住身體停下。',
+        '經旁人說明你才知道，\n剛才起落的車斗差點壓到你們，\n不敢想像被壓到會受什麼樣的傷。' 
       ],
       options: null,
       ending_txts:null, 
@@ -653,6 +656,14 @@ ArcadeScene.prototype = {
   startDialogueBox:function(){
     this.dialogue.currentTxtInd = 0
     this.dialogue_txt.text = this.dialogue.currentTxt[this.dialogue.currentTxtInd];
+
+    // check if 2 \n
+    if(this.dialogue.currentTxt[this.dialogue.currentTxtInd].split('\n').length > 2){
+      this.dialogue_txt.y = this.dialogue.txtLocation.y - thirdLineOffset;
+    }else{
+      this.dialogue_txt.y = this.dialogue.txtLocation.y;
+    }
+
     this.dialogueTxtIn.start();
     this.pawIn.start();
     this.dialogueBoxIn.start();
@@ -716,9 +727,8 @@ ArcadeScene.prototype = {
 
   setRandomEvent:function(){
     // set random number, test first
-    // this.choseEventNumber = 1;
-    // this.choseEventNumber = 0;
-    this.choseEventNumber = utils.getRandomInt(this.events.size);
+    this.choseEventNumber = 5;
+    // this.choseEventNumber = utils.getRandomInt(this.events.size);
 
     // set mood in front if no options
     // if(this.events[this.choseEventNumber].options == null){

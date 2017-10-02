@@ -1,7 +1,7 @@
 {
   "version": "1.6.02", 
   "check_loading":false,
-  "debug_jump": "CrossroadScene",
+  "debug_jump": "ArcadeScene",
   "loading_texts":{
     "0":"Joseph～走吧！",
     "1":"準備開始今天的冒險"

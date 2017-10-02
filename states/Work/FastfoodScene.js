@@ -134,31 +134,33 @@ FastfoodScene.prototype = {
     }
   }, 
   events:{
-    size: 3,
+    size: 2,
+    // size: 3,
     bad_mood_list:[10],
-    0:{
-      name: "kid_feed",
-      number: "26",
-      score:{A:1,B:1},
-      starting_txts:[
-        '「狗狗～要不要吃雞塊～？」'
-      ],
-      options:{
-        Q:'點餐時，身旁突然傳出小女孩的聲音，你……',
-        A:'[ 趕緊制止小女孩 ]',
-        B:'[ 相信Joseph可以克制住誘惑 ]',
-        bad_option:'None' // None
-      },
-      ending_txts:{
-        A:['還來不及開口，女孩的父母先出聲了：',
-        '「妹妹，不行喔！狗狗正在工作喔！」\n「工作？做什麼工作？」\n小女孩聽到母親制止後就不再逗弄Joseph了，',
-        '「他在幫叔叔帶路呀！我們不要打擾他們～\n不好意思，我們家女兒沒有惡意啦。」\n小女孩的父親略帶歉意對你說。',
-        '你笑著回：「沒關係，小孩子之後就會知道了。」',
-        '「狗狗～工作加油喔，掰掰～」'],
-        B:['TODO']
-      }
-    },
-    1:{ 
+    // bad_mood_list:[10],
+    // 0:{
+    //   name: "kid_feed",
+    //   number: "26",
+    //   score:{A:1,B:1},
+    //   starting_txts:[
+    //     '「狗狗～要不要吃雞塊～？」'
+    //   ],
+    //   options:{
+    //     Q:'點餐時，身旁突然傳出小女孩的聲音，你……',
+    //     A:'[ 趕緊制止小女孩 ]',
+    //     B:'[ 相信Joseph可以克制住誘惑 ]',
+    //     bad_option:'None' // None
+    //   },
+    //   ending_txts:{
+    //     A:['還來不及開口，女孩的父母先出聲了：',
+    //     '「妹妹，不行喔！狗狗正在工作喔！」\n「工作？做什麼工作？」\n小女孩聽到母親制止後就不再逗弄Joseph了，',
+    //     '「他在幫叔叔帶路呀！我們不要打擾他們～\n不好意思，我們家女兒沒有惡意啦。」\n小女孩的父親略帶歉意對你說。',
+    //     '你笑著回：「沒關係，小孩子之後就會知道了。」',
+    //     '「狗狗～工作加油喔，掰掰～」'],
+    //     B:['TODO']
+    //   }
+    // },
+    0:{ 
       name: "guest_talk",
       number: "27",
       score:1,
@@ -175,7 +177,7 @@ FastfoodScene.prototype = {
       options:null,
       ending_txts:null
     },
-    2:{
+    1:{
       name: "clerk_help",
       number: "28",
       score:1,
@@ -619,6 +621,14 @@ FastfoodScene.prototype = {
   startDialogueBox:function(){
     this.dialogue.currentTxtInd = 0
     this.dialogue_txt.text = this.dialogue.currentTxt[this.dialogue.currentTxtInd];
+
+    // check if 2 \n
+    if(this.dialogue.currentTxt[this.dialogue.currentTxtInd].split('\n').length > 2){
+      this.dialogue_txt.y = this.dialogue.txtLocation.y - thirdLineOffset;
+    }else{
+      this.dialogue_txt.y = this.dialogue.txtLocation.y;
+    }
+    
     this.dialogueTxtIn.start();
     this.pawIn.start();
     this.dialogueBoxIn.start();

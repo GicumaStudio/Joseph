@@ -173,19 +173,21 @@ BreakfastScene.prototype = {
     }
   }, 
   events:{
-    size: 3,
-    bad_mood_list:[0],
+    size: 2,
+    // size: 3,
+    bad_mood_list:[15],
+    // bad_mood_list:[0],
+    // 0:{
+    //   name: "door_bike_motor",
+    //   number: "29",
+    //   score: -1,
+    //   starting_txts:[
+    //     '你拿出手機正想用APP查公車還有多久會到，\n同時聽到長椅旁邊有兩個人開心地聊天，'
+    //   ],
+    //   options:null,
+    //   ending_txts:null,
+    // },
     0:{
-      name: "door_bike_motor",
-      number: "29",
-      score: -1,
-      starting_txts:[
-        '你拿出手機正想用APP查公車還有多久會到，\n同時聽到長椅旁邊有兩個人開心地聊天，'
-      ],
-      options:null,
-      ending_txts:null,
-    },
-    1:{
       name: "store_take_arcade",
       number: "30",
       score: 1,
@@ -203,7 +205,7 @@ BreakfastScene.prototype = {
       options:null,
       ending_txts:null
     },
-    2:{
+    1:{
       name: "guest_feed_dog",
       number: "31",
       score:{A: -2,B: -3},
@@ -659,6 +661,14 @@ BreakfastScene.prototype = {
   startDialogueBox:function(){
     this.dialogue.currentTxtInd = 0
     this.dialogue_txt.text = this.dialogue.currentTxt[this.dialogue.currentTxtInd];
+
+    // check if 2 \n
+    if(this.dialogue.currentTxt[this.dialogue.currentTxtInd].split('\n').length > 2){
+      this.dialogue_txt.y = this.dialogue.txtLocation.y - thirdLineOffset;
+    }else{
+      this.dialogue_txt.y = this.dialogue.txtLocation.y;
+    }
+    
     this.dialogueTxtIn.start();
     this.pawIn.start();
     this.dialogueBoxIn.start();

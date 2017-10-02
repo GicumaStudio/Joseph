@@ -209,53 +209,56 @@ BusScene.prototype = {
     }
   }, 
   events:{
-    size: 6,
-    bad_mood_list:[0],
+    size: 2,
+    // size: 6,
+    bad_mood_list:[15],
+    // bad_mood_list:[0],
+    // 0:{
+    //   name: "check_time",
+    //   number: "20",
+    //   score: -1,
+    //   starting_txts:[
+    //     '你拿出手機正想用APP查公車還有多久會到，\n同時聽到長椅旁邊有兩個人開心地聊天，'
+    //   ],
+    //   options:null,
+    //   ending_txts:null
+    // },
+    // 1:{
+    //   name: "dog_stink",
+    //   number: "21",
+    //   score: {A: 1,B:-3},
+    //   starting_txts:[
+    //     '好不容易終於搭上這班公車，',
+    //     '沒想到座位都還沒坐熱，\n就聽到有人衝著你罵：'
+    //   ],
+    //   options:{
+    //     Q:'「欸！你的狗臭死啦！\n可以請你下車嗎？我還有好幾站要搭耶！」\n你會……',
+    //     A:'[ 反正只有幾站，忍一下就好（不理會他的謾罵） ]',
+    //     B:'[ 唉，我懶得跟他吵，下一站就下車吧（下一站就下車） ]',
+    //     bad_option:'A' // None?
+    //   },
+    //   ending_txts:{
+    //     A:['「請問這邊哪一台是407號公車？」',
+    //     '「這邊停的三台都是啦！你要上車嗎？」\n司機略帶笑意地回答你，',
+    //     '你不好意思地搔了搔頭趕緊上車。'],
+    //     B:['Joseph居然帶著你往馬路中間走去，',
+    //     '你的心裡微微緊張了一下，但隨即恢復冷靜：\n『我要相信Joseph！』很快地你們停了下來，',
+    //     '司機熟悉的聲音也從前面傳來：\n「唉唷！你這隻厲害喔！\n我今天停這麼外面牠也知道！」',
+    //     '原來是公車站邊有違停的汽車，\n使得司機只能把車停得比較靠近馬路中間。',
+    //     '『如果沒 Joseph 的話，我肯定會錯過的吧』\n你不禁在心裡這麼想著。']
+    //   }
+    // },
+    // 2:{
+    //   name: "bus_drove_away",
+    //   number: "22",
+    //   score: -1,
+    //   starting_txts:[
+    //     '「怎麼這麼慢啊？不會已經開走了吧？」',
+    //   ],
+    //   options:null,
+    //   ending_txts:null,
+    // },
     0:{
-      name: "check_time",
-      number: "20",
-      score: -1,
-      starting_txts:[
-        '你拿出手機正想用APP查公車還有多久會到，\n同時聽到長椅旁邊有兩個人開心地聊天，'
-      ],
-      options:null,
-      ending_txts:null
-    },
-    1:{
-      name: "check_bus",
-      number: "21",
-      score: {A: 1,B:-3},
-      starting_txts:[
-        '此刻你聽到竟然有幾台公車一起進站了，',
-      ],
-      options:{
-        Q:'一時無法分辨平常搭的公車是哪一台的你會：',
-        A:'[ 靠近車門向司機詢問 ]',
-        B:'[ 放心地讓 Joseph 決定： ]',
-        bad_option:'A' // None?
-      },
-      ending_txts:{
-        A:['「請問這邊哪一台是407號公車？」',
-        '「這邊停的三台都是啦！你要上車嗎？」\n司機略帶笑意地回答你，',
-        '你不好意思地搔了搔頭趕緊上車。'],
-        B:['Joseph居然帶著你往馬路中間走去，',
-        '你的心裡微微緊張了一下，但隨即恢復冷靜：\n『我要相信Joseph！』很快地你們停了下來，',
-        '司機熟悉的聲音也從前面傳來：\n「唉唷！你這隻厲害喔！\n我今天停這麼外面牠也知道！」',
-        '原來是公車站邊有違停的汽車，\n使得司機只能把車停得比較靠近馬路中間。',
-        '『如果沒 Joseph 的話，我肯定會錯過的吧』\n你不禁在心裡這麼想著。']
-      }
-    },
-    2:{
-      name: "bus_drove_away",
-      number: "22",
-      score: -1,
-      starting_txts:[
-        '「怎麼這麼慢啊？不會已經開走了吧？」',
-      ],
-      options:null,
-      ending_txts:null,
-    },
-    3:{
       name: "people_pet_dog",
       number: "23",
       score: {A: 1,B:-3},
@@ -281,17 +284,17 @@ BusScene.prototype = {
         '你順利搭上了車，想著新站牌還真是方便，\n之後應該不用踏到馬路上攔車了吧。']
       }
     },
-    4:{
-      name: "people_pet_dog",
-      number: "24",
-      score: 1,
-      starting_txts:[
-        '靠近終點的公車站，會在這站搭乘的乘客本來就不多，'
-      ],
-      options: null,
-      ending_txts:null
-    },
-    5:{
+    // 4:{
+    //   name: "people_pet_dog",
+    //   number: "24",
+    //   score: 1,
+    //   starting_txts:[
+    //     '靠近終點的公車站，會在這站搭乘的乘客本來就不多，'
+    //   ],
+    //   options: null,
+    //   ending_txts:null
+    // },
+    1:{
       name: "people_pet_dog",
       number: "25",
       score: 3,
@@ -728,6 +731,14 @@ BusScene.prototype = {
   startDialogueBox:function(){
     this.dialogue.currentTxtInd = 0
     this.dialogue_txt.text = this.dialogue.currentTxt[this.dialogue.currentTxtInd];
+
+    // check if 2 \n
+    if(this.dialogue.currentTxt[this.dialogue.currentTxtInd].split('\n').length > 2){
+      this.dialogue_txt.y = this.dialogue.txtLocation.y - thirdLineOffset;
+    }else{
+      this.dialogue_txt.y = this.dialogue.txtLocation.y;
+    }
+    
     this.dialogueTxtIn.start();
     this.pawIn.start();
     this.dialogueBoxIn.start();

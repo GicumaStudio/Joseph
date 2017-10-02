@@ -503,6 +503,7 @@ Loading.prototype = {
     game.load.image('event_08', 'assets/images/events/work/arcade/08_sidewalk_bike.png');
     game.load.image('event_67', 'assets/images/events/work/arcade/67_messy_garbage.png');
     game.load.image('event_68', 'assets/images/events/work/arcade/68_broken_slope.png');
+    game.load.image('event_69', 'assets/images/events/work/arcade/69_truck_back.png');
 
     // crossroad
     game.load.image('event_01', 'assets/images/events/work/crossroad/01_dog_stop.png');

@@ -153,31 +153,33 @@ MrtScene.prototype = {
     }
   }, 
   events:{
-    size: 3,
-    bad_mood_list:[0,1],
-    0:{
-      name: "mrt_seats",
-      number: "13",
-      score: -1,
-      starting_txts:[
-        '你拿出手機正想用APP查公車還有多久會到，\n同時聽到長椅旁邊有兩個人開心地聊天，'
-      ],
-      options:{
-        Q:'還是問問他們就好了呢？',
-        A:'[ 用手機APP自己查 ]',
-        B:'[ 問身旁兩位路人 ]',
-        bad_option:'B' // None
-      },
-      ending_txts:{
-        A:['聽聲音好像是小女孩在聊天，\n擔心嚇到她們，於是你從口袋拿出手機，',
-        '點開App，將手機靠近耳邊聽到站提醒，\nApp告知你407號公車五分鐘後進站。',
-        '約莫五分鐘後，公車進站。',
-        '你握起導盲鞍讓Joseph引導你順利上車，\n內心讚嘆科技的發達，\n讓生活裡許多事物不再是難題。'],
-        B:['「你們好，不好意思，\n可以幫我看一下407號公車多久到嗎？」',
-        '「等等哦，我看一下，\n那個…站牌上寫還有四分鐘才會到哦！」',
-        '「謝謝你們唷！」\n對於熱心的路人衷心感謝，\n同時也因為溫暖的人情感到開心。']
-      }
-    },
+    size: 2,
+    // size: 3,
+    bad_mood_list:[1],
+    // bad_mood_list:[0,1],
+    // 0:{
+    //   name: "mrt_seats",
+    //   number: "13",
+    //   score: -1,
+    //   starting_txts:[
+    //     '你拿出手機正想用APP查公車還有多久會到，\n同時聽到長椅旁邊有兩個人開心地聊天，'
+    //   ],
+    //   options:{
+    //     Q:'還是問問他們就好了呢？',
+    //     A:'[ 用手機APP自己查 ]',
+    //     B:'[ 問身旁兩位路人 ]',
+    //     bad_option:'B' // None
+    //   },
+    //   ending_txts:{
+    //     A:['聽聲音好像是小女孩在聊天，\n擔心嚇到她們，於是你從口袋拿出手機，',
+    //     '點開App，將手機靠近耳邊聽到站提醒，\nApp告知你407號公車五分鐘後進站。',
+    //     '約莫五分鐘後，公車進站。',
+    //     '你握起導盲鞍讓Joseph引導你順利上車，\n內心讚嘆科技的發達，\n讓生活裡許多事物不再是難題。'],
+    //     B:['「你們好，不好意思，\n可以幫我看一下407號公車多久到嗎？」',
+    //     '「等等哦，我看一下，\n那個…站牌上寫還有四分鐘才會到哦！」',
+    //     '「謝謝你們唷！」\n對於熱心的路人衷心感謝，\n同時也因為溫暖的人情感到開心。']
+    //   }
+    // },
     1:{
       name: "tail_stepped",
       number: "14",
@@ -191,7 +193,7 @@ MrtScene.prototype = {
       options:null,
       ending_txts:null
     },
-    2:{
+    0:{
       name: "scared_kid",
       number: "15",
       score: {A: 1,B: 3},
@@ -646,6 +648,14 @@ MrtScene.prototype = {
   startDialogueBox:function(){
     this.dialogue.currentTxtInd = 0
     this.dialogue_txt.text = this.dialogue.currentTxt[this.dialogue.currentTxtInd];
+
+    // check if 2 \n
+    if(this.dialogue.currentTxt[this.dialogue.currentTxtInd].split('\n').length > 2){
+      this.dialogue_txt.y = this.dialogue.txtLocation.y - thirdLineOffset;
+    }else{
+      this.dialogue_txt.y = this.dialogue.txtLocation.y;
+    }
+    
     this.dialogueTxtIn.start();
     this.pawIn.start();
     this.dialogueBoxIn.start();
