@@ -33,7 +33,7 @@ MrtTransition.prototype = {
   topTxt:{
     size:1,
     line:[
-      ['先休息一下吧 Joseph，\n等等下了捷運我們就要加快腳步囉～'],
+      ['在捷運上休息了一下感覺涼爽多了，\n搭著搭著都餓起來了。'],
     ],
     ind: 0,
     lineSpacing: 20,
@@ -48,7 +48,7 @@ MrtTransition.prototype = {
     x: game.world.centerX,
     y: 306,
     distance: 50,
-    line:'啊！還得要先順路買個早餐才行，\n去哪買比較快呢？'
+    line:'啊！這才想起來我還沒吃早餐呢，\n等等陪我買個早餐吧 Joseph～'
   },
   buttons:{
     txtDistance: 230, 

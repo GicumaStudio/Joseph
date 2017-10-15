@@ -173,21 +173,25 @@ BreakfastScene.prototype = {
     }
   }, 
   events:{
-    size: 2,
-    // size: 3,
-    bad_mood_list:[15],
-    // bad_mood_list:[0],
-    // 0:{
-    //   name: "door_bike_motor",
-    //   number: "29",
-    //   score: -1,
-    //   starting_txts:[
-    //     '你拿出手機正想用APP查公車還有多久會到，\n同時聽到長椅旁邊有兩個人開心地聊天，'
-    //   ],
-    //   options:null,
-    //   ending_txts:null,
-    // },
+    // size: 2,
+    size: 3,
+    // bad_mood_list:[15],
+    bad_mood_list:[0],
     0:{
+      name: "door_bike_motor",
+      number: "29",
+      score: -1,
+      starting_txts:[
+        'Joseph 帶你走到早餐店附近時，\n步調明顯地慢了下來。',
+        '「⋯⋯一定又是來吃早餐的人臨停的機車」\n你用手杖探索四周，發現都是金屬的回聲。',
+        '「欸！外面那是誰的機車，移一下啦！\n你們這樣擋到人我很難做生意捏！」',
+        '正當你們找不到路通過這些機車時，\n早餐店老闆娘宏亮的聲音替你們解了圍。',
+        '「帥哥，今天也一樣是巧克力厚片不切嗎？」\n聽到這聲音你的心情不禁也跟著開朗起來。'
+      ],
+      options:null,
+      ending_txts:null,
+    },
+    1:{
       name: "store_take_arcade",
       number: "30",
       score: 1,
@@ -205,7 +209,7 @@ BreakfastScene.prototype = {
       options:null,
       ending_txts:null
     },
-    1:{
+    2:{
       name: "guest_feed_dog",
       number: "31",
       score:{A: -2,B: -3},

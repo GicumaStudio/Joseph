@@ -31,9 +31,10 @@ BusTransition.prototype = {
   coverAlpha:0.6,
   endingDelay: 500,
   topTxt:{
-    size:1,
+    size:2,
     line:[
-      ['先休息一下吧 Joseph，\n等等下了公車我們就要加快腳步囉～'],
+      ['啊！肚子突然餓了起來，\n都忘記在家吃了早餐的只有你呢 Joseph，'],
+      ['路上還會經過常吃的早餐店跟速食店，\n待會陪我買個早餐吧！'],
     ],
     ind: 0,
     lineSpacing: 20,
@@ -48,7 +49,7 @@ BusTransition.prototype = {
     x: game.world.centerX,
     y: 306,
     distance: 50,
-    line:'啊！還得要先順路買個早餐才行，\n去哪買比較快呢？'
+    line:'那麼要去哪邊買好呢？'
   },
   buttons:{
     txtDistance: 230, 

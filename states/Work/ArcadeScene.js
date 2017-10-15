@@ -206,8 +206,7 @@ ArcadeScene.prototype = {
     tweenOut: null
   },
   events:{
-    size: 7,
-    // size: 8,
+    size: 8,
     bad_mood_list:[0,1,2,3,4,5,6,7],
     0:{
       name: "step_drop",
@@ -289,17 +288,19 @@ ArcadeScene.prototype = {
       options: null,
       ending_txts:null, 
     },
-    // 6:{
-    //   name: "broken_slope",
-    //   number: "68",
-    //   score: -1,
-    //   starting_txts:[
-    //     'tototototot' 
-    //   ],
-    //   options: null,
-    //   ending_txts:null, 
-    // },
     6:{
+      name: "broken_slope",
+      number: "68",
+      score: -1,
+      starting_txts:[
+        '今天的騎樓意外的沒有什麼障礙物，\n你們十分順利地走到了個無障礙斜坡前。',
+        '「哎呀！」雖然 Joseph 有放慢了速度提醒，\n但你還是來不及察覺斜坡上的坑洞而絆到了腳。',
+        '看來儘管有了無障礙設施，\n卻也無法完全保證能夠走得更順暢呢。' 
+      ],
+      options: null,
+      ending_txts:null, 
+    },
+    7:{
       name: "brpe",
       number: "69",
       score: -3,
