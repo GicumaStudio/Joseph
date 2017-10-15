@@ -241,7 +241,7 @@ Loading.prototype = {
     game.load.spritesheet('menu_start_sprite', 'assets/images/menu/Start_sprite.png', 441, 173);
 
     // home items
-    game.load.spritesheet('home_document_sprite', 'assets/images/home/Document_sprite.png', 219, 176);
+    game.load.spritesheet('home_document_sprite', 'assets/images/home/Document_Sprite.png', 219, 176);
     game.load.spritesheet('home_saddle_sprite', 'assets/images/home/saddle_sprite.png', 306, 158);
     game.load.spritesheet('home_stick_sprite', 'assets/images/home/guidecane_sprite.png', 120, 240);
     game.load.spritesheet('home_hat_sprite', 'assets/images/home/hat_sprite.png', 93, 199);
