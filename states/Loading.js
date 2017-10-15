@@ -241,7 +241,7 @@ Loading.prototype = {
     game.load.spritesheet('menu_start_sprite', 'assets/images/menu/Start_sprite.png', 441, 173);
 
     // home items
-    game.load.spritesheet('home_document_sprite', 'assets/images/home/document_sprite.png', 219, 176);
+    game.load.spritesheet('home_document_sprite', 'assets/images/home/Document_sprite.png', 219, 176);
     game.load.spritesheet('home_saddle_sprite', 'assets/images/home/saddle_sprite.png', 306, 158);
     game.load.spritesheet('home_stick_sprite', 'assets/images/home/guidecane_sprite.png', 120, 240);
     game.load.spritesheet('home_hat_sprite', 'assets/images/home/hat_sprite.png', 93, 199);
@@ -384,7 +384,7 @@ Loading.prototype = {
     game.load.image('end_joe_high', 'assets/images/score_prompt/joseph/END_high.png');
 
     // UI Stuff 
-    game.load.image('end_paper_back', 'assets/images/score_prompt/UI_END_Back.png');
+    game.load.image('end_paper_back', 'assets/images/score_prompt/UI_END_back.png');
     game.load.image('end_star_unfilled', 'assets/images/score_prompt/UI_END_star_unfilled.png');
     game.load.image('end_star_filled', 'assets/images/score_prompt/UI_END_star_filled.png');
     game.load.image('end_lineA', 'assets/images/score_prompt/UI_END_line_A.png');
