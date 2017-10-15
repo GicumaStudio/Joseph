@@ -515,6 +515,10 @@ BusScene.prototype = {
       this.brighter_items.item[i].button.onInputOver.add(this.itemOnOver, this);
       this.brighter_items.item[i].button.onInputOut.add(this.itemOnOut, this);
 
+      // pixel perfect
+      this.brighter_items.item[i].button.input.pixelPerfectOver = true;
+      //
+      
       // set anchor, alpha; disabled in diableAllButtons
       this.brighter_items.item[i].button.alpha = 0;
       this.brighter_items.item[i].button.anchor.setTo(0.5);
@@ -529,14 +533,29 @@ BusScene.prototype = {
     for (var i = 0; i < this.brighter_items.size; i++) {
       // make group
       this.brighter_items.item[i].description.group = game.add.group();
-      this.brighter_items.item[i].description.group.x = this.brighter_items.item[i].position.x + this.brighter_items.item[i].description.relative_position.x + this.brighter_items.item[i].description.tween_distance.x;
-      this.brighter_items.item[i].description.group.y = this.brighter_items.item[i].position.y + this.brighter_items.item[i].description.relative_position.y + this.brighter_items.item[i].description.tween_distance.y;
 
       // make box and txt
       this.brighter_items.item[i].description.box = game.make.sprite(0, 0, this.description_box);
 
       this.box_txt_style = {font: "38px SansCJK", fill: 'White'};
       this.brighter_items.item[i].description.box_txt = game.make.text(0, 0, this.brighter_items.item[i].description.txt, this.box_txt_style);
+
+      //
+      // adjust positions, rela x = 0 , y = -250 ususally
+      if(this.brighter_items.item[i].position.y + this.brighter_items.item[i].description.relative_position.y - this.brighter_items.item[i].description.box.height/2 < 0){
+        this.brighter_items.item[i].description.relative_position.y = this.brighter_items.item[i].description.relative_position.y * (-1);
+        this.brighter_items.item[i].description.tween_distance.y = this.brighter_items.item[i].description.tween_distance.y * (-1);
+      }
+      if(this.brighter_items.item[i].position.x - this.brighter_items.item[i].description.box.width/2 < 80){
+        this.brighter_items.item[i].description.relative_position.x = 80 + this.brighter_items.item[i].description.box.width/2 - this.brighter_items.item[i].position.x;
+      }else if(this.brighter_items.item[i].position.x + this.brighter_items.item[i].description.box.width/2 > WIDTH - 80){
+        this.brighter_items.item[i].description.relative_position.x = WIDTH - 80 - this.brighter_items.item[i].description.box.width/2 - this.brighter_items.item[i].position.x;
+      }
+      //
+      //
+
+      this.brighter_items.item[i].description.group.x = this.brighter_items.item[i].position.x + this.brighter_items.item[i].description.relative_position.x + this.brighter_items.item[i].description.tween_distance.x;
+      this.brighter_items.item[i].description.group.y = this.brighter_items.item[i].position.y + this.brighter_items.item[i].description.relative_position.y + this.brighter_items.item[i].description.tween_distance.y;
 
       // center box and box_txt, zero alpha description group 
       utils.centerGameObjects([this.brighter_items.item[i].description.box, this.brighter_items.item[i].description.box_txt]);  
@@ -547,8 +566,6 @@ BusScene.prototype = {
 
       // add to group
       this.brighter_items.item[i].description.group.addMultiple([this.brighter_items.item[i].description.box, this.brighter_items.item[i].description.box_txt]);
-      
-
     }
   },
 

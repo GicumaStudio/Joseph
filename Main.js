@@ -1,6 +1,8 @@
 var game = 
 new Phaser.Game(1920, 1080, Phaser.AUTO, 'MainBody'), 
 Main = function(){},
+WIDTH = 1920,
+HEIGHT = 1080,
 total_score = 0,
 gameOptions = {
     playSound: true,

@@ -9,7 +9,7 @@ MrtStationScene.prototype = {
   nextScene:'MrtStationTransition',
   musicName:'work_mrt_station',
   background_good:{
-    size: 2,
+    size: 3,
     0:{
       name:'mrtstation_bg_good',
       sprite: null,
@@ -21,6 +21,16 @@ MrtStationScene.prototype = {
       tweenOut: null
     },
     1:{
+      name:'mrtstation_bg_good_bright',
+      sprite: null,
+      position:{
+        x: 0,y: 0
+      },
+      center_anchor: false,
+      tweenIn: null,
+      tweenOut: null
+    },
+    2:{
       name:'mrtstation_bg_good_gate_woman',
       sprite: null,
       position:{
@@ -347,13 +357,13 @@ MrtStationScene.prototype = {
     this.setOptionABEvents();
 
     utils.addExistingMultiple([this.brownBG,
-      this.background_good[0].sprite, this.background_bad[0].sprite,
+      this.background_good[0].sprite, this.background_good[1].sprite,this.background_bad[0].sprite,
       this.status_box, this.status_time_1015, this.status_time_1020, this.sunny_icon]);
 
     this.addItemButtons();
 
     utils.addExistingMultiple([this.joseph_good, this.joseph_bad]);
-    for (var i = 1; i < this.background_good.size; i++) {
+    for (var i = 2; i < this.background_good.size; i++) {
       utils.addExistingMultiple([this.background_good[i].sprite]);
     }
     for (var i = 1; i < this.background_bad.size; i++) {
@@ -428,6 +438,10 @@ MrtStationScene.prototype = {
       this.brighter_items.item[i].button.onInputOver.add(this.itemOnOver, this);
       this.brighter_items.item[i].button.onInputOut.add(this.itemOnOut, this);
 
+      // pixel perfect
+      this.brighter_items.item[i].button.input.pixelPerfectOver = true;
+      //
+      
       // set anchor, alpha; disabled in diableAllButtons
       this.brighter_items.item[i].button.alpha = 0;
       this.brighter_items.item[i].button.anchor.setTo(0.5);
@@ -442,14 +456,29 @@ MrtStationScene.prototype = {
     for (var i = 0; i < this.brighter_items.size; i++) {
       // make group
       this.brighter_items.item[i].description.group = game.add.group();
-      this.brighter_items.item[i].description.group.x = this.brighter_items.item[i].position.x + this.brighter_items.item[i].description.relative_position.x + this.brighter_items.item[i].description.tween_distance.x;
-      this.brighter_items.item[i].description.group.y = this.brighter_items.item[i].position.y + this.brighter_items.item[i].description.relative_position.y + this.brighter_items.item[i].description.tween_distance.y;
 
       // make box and txt
       this.brighter_items.item[i].description.box = game.make.sprite(0, 0, this.description_box);
 
       this.box_txt_style = {font: "38px SansCJK", fill: 'White'};
       this.brighter_items.item[i].description.box_txt = game.make.text(0, 0, this.brighter_items.item[i].description.txt, this.box_txt_style);
+
+      //
+      // adjust positions, rela x = 0 , y = -250 ususally
+      if(this.brighter_items.item[i].position.y + this.brighter_items.item[i].description.relative_position.y - this.brighter_items.item[i].description.box.height/2 < 0){
+        this.brighter_items.item[i].description.relative_position.y = this.brighter_items.item[i].description.relative_position.y * (-1);
+        this.brighter_items.item[i].description.tween_distance.y = this.brighter_items.item[i].description.tween_distance.y * (-1);
+      }
+      if(this.brighter_items.item[i].position.x - this.brighter_items.item[i].description.box.width/2 < 80){
+        this.brighter_items.item[i].description.relative_position.x = 80 + this.brighter_items.item[i].description.box.width/2 - this.brighter_items.item[i].position.x;
+      }else if(this.brighter_items.item[i].position.x + this.brighter_items.item[i].description.box.width/2 > WIDTH - 80){
+        this.brighter_items.item[i].description.relative_position.x = WIDTH - 80 - this.brighter_items.item[i].description.box.width/2 - this.brighter_items.item[i].position.x;
+      }
+      //
+      //
+
+      this.brighter_items.item[i].description.group.x = this.brighter_items.item[i].position.x + this.brighter_items.item[i].description.relative_position.x + this.brighter_items.item[i].description.tween_distance.x;
+      this.brighter_items.item[i].description.group.y = this.brighter_items.item[i].position.y + this.brighter_items.item[i].description.relative_position.y + this.brighter_items.item[i].description.tween_distance.y;
 
       // center box and box_txt, zero alpha description group 
       utils.centerGameObjects([this.brighter_items.item[i].description.box, this.brighter_items.item[i].description.box_txt]);  
@@ -460,8 +489,6 @@ MrtStationScene.prototype = {
 
       // add to group
       this.brighter_items.item[i].description.group.addMultiple([this.brighter_items.item[i].description.box, this.brighter_items.item[i].description.box_txt]);
-      
-
     }
   },
 

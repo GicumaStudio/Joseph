@@ -567,11 +567,9 @@ DogSchoolScene.prototype = {
 
   startScoreUITween2:function(){
     // this.score_ind // 1, 2, 3
-    for (var i = 0; i < 3; i++) {
-      if(i < this.score_ind){
-        this.stars.filled[i].tweenIn.start();
-        this.stars.filled[i].tweenInScale.start();
-      }
+    for (var i = 0; i < this.score_ind; i++) {
+      this.stars.filled[i].tweenIn.start();
+      this.stars.filled[i].tweenInScale.start();
       this.stars.unfilled[i].tweenOut.start();
       // TODO sound
     }

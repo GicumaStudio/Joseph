@@ -443,6 +443,7 @@ Loading.prototype = {
 
     // Mrt Station
     game.load.image('mrtstation_bg_good', 'assets/images/work/mrt_station/bgs/MRT_station_ord.png');
+    game.load.image('mrtstation_bg_good_bright', 'assets/images/work/mrt_station/bgs/MRT_station_ord_bright.png');
     game.load.image('mrtstation_bg_good_gate_woman', 'assets/images/work/mrt_station/bgs/MRT_station_ord_gate_woman.png');
     game.load.image('mrtstation_bg_bad', 'assets/images/work/mrt_station/bgs/MRT_station_bad.png');
     game.load.image('mrtstation_bg_bad_gate_woman', 'assets/images/work/mrt_station/bgs/MRT_station_bad_gate_woman.png');
