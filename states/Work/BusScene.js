@@ -223,7 +223,7 @@ BusScene.prototype = {
     //   options:null,
     //   ending_txts:null
     // },
-    // 1:{
+    // 0:{
     //   name: "dog_stink",
     //   number: "21",
     //   score: {A: 1,B:-3},
@@ -263,25 +263,21 @@ BusScene.prototype = {
       number: "23",
       score: {A: 1,B:-3},
       starting_txts:[
-        '靠近終點的公車站，會在這站搭乘的乘客本來就不多，'
+        '「媽媽你看！狗狗好可愛！」'
       ],
       options:{
-        Q:'現在好像只有我和Joseph在等車，\n要怎麼順利搭上正確的公車呢？',
-        A:'[ 攔下每一輛公車後詢問 ]',
-        B:'[ 按下新型站牌的按鈕 ]',
+        Q:'才剛上公車，立刻聽到有小孩朝著你們大喊，\n想要衝過來逗 Joseph 玩。你……',
+        A:'[ 跟小孩委婉解釋 ]',
+        B:'[ 連忙制止小孩 ]',
         bad_option:'B' // None?
       },
       ending_txts:{
-        A:['聽見了公車靠近的聲音，\n你稍微踏上馬路，伸手攔下公車。',
-        '「不好意思，請問有到小巨蛋嗎？」\n「沒有喔。」',
-        '沒多久，下一輛公車靠近。\n「請問有到小巨蛋嗎？」\n「有喔，上車吧！」',
-        '當你和Joseph踏上公車，公車司機對你說，\n「下次不要走到馬路上攔啦，小心危險。」\n「好，謝謝司機！」',
-        'Joseph引導你到司機後方的座位後，\n等你坐下後，司機才發動車輛開離站牌，\n你默默在心中感謝這位司機的貼心。'],
-        B:['印象最近新聞說有增設新型公車站牌，\n按下站牌按鈕可以提醒即將到站的公車司機。',
-        '你伸手觸摸公車站牌們，\n發現其中一支跟之前圓柱狀的站牌不大一樣，\n再摸了摸，果然在上頭找到了一個按鈕，\n你按下按鈕後等待。',
-        '過了會兒，聽見公車靠近的聲音，\n你沒有踏出去招手，公車自動地停在你的前方。',
-        '「要搭車嗎？」\n「請問是407公車嗎？」\n「是的！」',
-        '你順利搭上了車，想著新站牌還真是方便，\n之後應該不用踏到馬路上攔車了吧。']
+        A:['你委婉地制止他之後，\n索性提高音量對所有人來場導盲犬的宣導會。',
+          '聽著他似懂非懂地重複你講的「四不一問」，\n想想應該也是有所收獲的吧。'],
+        B:['你擔心 Joseph 受傷，連忙制止了那個小孩，',
+        '沒想到什麼都還沒解釋到，\n就聽到他媽媽不屑地說著：',
+        '「小孩子摸一下又不會怎麼樣。」',
+        '雖然小孩最後被他媽媽拉回座位上了，\n但那句話聽了心裡很不是滋味。']
       }
     },
     // 4:{
@@ -1026,5 +1022,21 @@ BusScene.prototype = {
     this.pawBlinkSpeed = settingsJSON.arcade_scene.paw_blink_speed;
     this.option.inDelay = settingsJSON.arcade_scene.option_in_delay;
     this.tween.txtSpeed = settingsJSON.arcade_scene.txt_speed;
+    // texts json
+    thisScene = "Bus";
+    
+    this.dialogue.txt.start = textsJSON.work[thisScene].dialogueStart; 
+
+    for (var i = 0; i < this.brighter_items.size; i++) {
+      this.brighter_items.item[i].description.txt = textsJSON.work[thisScene].brighterItems[i];
+    }
+
+    for (var i = 0; i < this.events.size; i++) {
+      this.events[i].starting_txts = textsJSON.work[thisScene].events[i].starting;
+      if(this.events[i].options){
+        this.events[i].options = textsJSON.work[thisScene].events[i].options;
+        this.events[i].ending_txts = textsJSON.work[thisScene].events[i].ending;
+      }
+    }
   }
 };

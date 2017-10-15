@@ -21,6 +21,7 @@ txtDelay = 1500,
 sceneSwitchSpeed = 300,
 sceneSwitchDelay = 300,
 settingsJSON,
+textsJSON,
 pathIndex,
 sceneIndex,
 thirdLineOffset = 30;
@@ -44,6 +45,7 @@ Main.prototype = {
 
         // load JSON file
         game.load.json("settings_json","settings.json");
+        game.load.json("texts_json","texts.json");
     },
 
     create:function(){
@@ -52,6 +54,7 @@ Main.prototype = {
 
         // JSON
         settingsJSON = game.cache.getJSON("settings_json");
+        textsJSON = game.cache.getJSON("texts_json");
     },
 
     loadImgs:function(){

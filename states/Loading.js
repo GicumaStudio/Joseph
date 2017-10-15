@@ -360,13 +360,17 @@ Loading.prototype = {
 
     // home scene
     game.load.image('home_a_dialog_box', 'assets/images/home/A_Dialog-box.png');
-    game.load.image('home_b_dialog_box', 'assets/images/home/B_Dialog-box.png');
+    // game.load.image('home_b_dialog_box', 'assets/images/home/B_Dialog-box.png');
+    game.load.image('home_b_dialog_box', 'assets/images/home/dialog.png');
     game.load.image('home_back', 'assets/images/home/back.png');
     game.load.image('home_c_cover', 'assets/images/home/C_Cover.png');
     game.load.image('home_c_icon_to_work_dialog', 'assets/images/home/C_icon_to-work_Dialog.png');
     game.load.image('home_home', 'assets/images/home/home.png');
     game.load.image('home_Joseph', 'assets/images/home/Joseph1.png');
     game.load.image('home_Joseph2', 'assets/images/home/Joseph2.png');
+
+    game.load.image('home_leisure_lock', 'assets/images/home/leisure_lock.png');
+    game.load.image('home_hometown_lock', 'assets/images/home/hometown_lock.png');
 
     this.loadWorkImages();
     this.loadEventImages();
@@ -390,8 +394,13 @@ Loading.prototype = {
     game.load.image('end_top_txt', 'assets/images/score_prompt/UI_END_Top_sentence.png');
     game.load.image('end_friendly_city_txt', 'assets/images/score_prompt/UI_END_Friendly-City_sentence.png');
     game.load.image('end_city_description_back', 'assets/images/score_prompt/UI_END_City_Color.png');
-    game.load.image('end_city_txt_normal', 'assets/images/score_prompt/UI_END_City_sentence.png');
-    game.load.image('end_city_title_normal', 'assets/images/score_prompt/UI_END_City_Title.png');
+
+    game.load.image('end_city_txt_bad', 'assets/images/score_prompt/UI_END_City_sentence_Bad.png');
+    game.load.image('end_city_title_bad', 'assets/images/score_prompt/UI_END_City_Title_Bad.png');
+    game.load.image('end_city_txt_normal', 'assets/images/score_prompt/UI_END_City_sentence_Normal.png');
+    game.load.image('end_city_title_normal', 'assets/images/score_prompt/UI_END_City_Title_Normal.png');
+    game.load.image('end_city_txt_good', 'assets/images/score_prompt/UI_END_City_sentence_Good.png');
+    game.load.image('end_city_title_good', 'assets/images/score_prompt/UI_END_City_Title_Good.png');
 
     // score UI buttons
     game.load.image('end_button_plan', 'assets/images/score_prompt/buttons/UI_END_Plan-page.png');

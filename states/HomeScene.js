@@ -92,13 +92,13 @@ HomeScene.prototype = {
   },
   boxDistance: 190, 
   txt:{
-    doc:     '這個還是帶著預防萬一好了，雖然\n近來已經比較少拿出來了～',
-    hat:     '大家都說這頂帽子超好看的！戴帽\n子除了遮陽，還有其他功能喔！',
-    saddle:  '哈哈，看到我拿導盲鞍還是這麼興\n奮啊，好了好了不要再鑽了，很快\n就戴好了啦', 
-    cape:    '身為我的英雄，當然是要穿披風才\n稱頭啊',
-    stick:   '雖然有了Joseph，這個還是要帶\n著才能預防更多危險呢',
-    raincoat:'Raincoat', 
-    umbrella:'Umbrella'
+    doc:     '公文袋：\n這個還是帶著預防萬一好了，雖然\n近來已經比較少拿出來了～',
+    hat:     '帽子：\n大家都說這頂帽子超好看的！戴帽\n子除了遮陽，還有其他功能喔！',
+    saddle:  '導盲鞍：\n哈哈，看到我拿導盲鞍還是這麼興\n奮啊，好了好了不要再鑽了，很快\n就戴好了啦', 
+    cape:    '披風：\n身為我的英雄，當然是要穿披風才\n稱頭啊',
+    stick:   '手杖：\n雖然有了Joseph，這個還是要帶\n著才能預防更多危險呢',
+    raincoat:'雨衣：\n不知道前陣子朋友送給 Joseph\n的新雨衣今天會派上用場嗎？', 
+    umbrella:'雨傘：\n對了，氣象預報好像有說今天會\n下雨。'
   },
   annoTxt:{
     doc:     '公文袋',
@@ -167,22 +167,26 @@ HomeScene.prototype = {
     // make choice icon buttons
     this.makeIconButtons();
 
+    // make locks!!!!!
+    this.leisureLock = game.make.sprite(this.icon.leisure.x , this.icon.leisure.y,'home_leisure_lock');
+    this.hometownLock = game.make.sprite(this.icon.hometown.x , this.icon.hometown.y,'home_hometown_lock');
+
     // set anchor and alpha
     utils.centerGameObjects([this.topDialog, this.startTxt1, this.startTxt2, this.homeJosephLeft, this.homeJosephRight, this.docTxt, this.docBox, this.saddleTxt, this.saddleBox,
       this.stickTxt, this.stickBox, this.hatTxt, this.hatBox, this.raincoatTxt, this.raincoatBox, this.umbrellaTxt, this.umbrellaBox,
-      this.docAnno, this.hatAnno, this.stickAnno, this.saddleAnno, this.umbrellaAnno, this.raincoatAnno, 
+      // this.docAnno, this.hatAnno, this.stickAnno, this.saddleAnno, this.umbrellaAnno, this.raincoatAnno, 
       this.dialogTxt1[0], this.dialogTxt1[1], this.dialogTxt2[0], this.dialogTxt2[1], 
       this.icon.work.button, this.icon.work.txt, this.icon.work.choose.sprite, this.icon.work.dialog.sprite,
       this.icon.leisure.button,  this.icon.leisure.txt, this.icon.leisure.choose.sprite,
-      this.icon.hometown.button, this.icon.hometown.txt,  this.icon.hometown.choose.sprite]);
+      this.icon.hometown.button, this.icon.hometown.txt,  this.icon.hometown.choose.sprite, this.leisureLock, this.hometownLock]);
 
     utils.zeroAlpha([this.startTxt1, this.startTxt2, this.homeBG, this.homeJosephLeft, this.homeJosephRight, this.documentButton, 
       this.saddleButton, this.stickButton, this.hatButton, this.raincoatButton, this.umbrellaButton, this.endingBrownBG,
-      this.docAnno, this.hatAnno, this.stickAnno, this.saddleAnno, this.umbrellaAnno, this.raincoatAnno, 
+      // this.docAnno, this.hatAnno, this.stickAnno, this.saddleAnno, this.umbrellaAnno, this.raincoatAnno, 
       this.topDialog, this.dialogTxt1[0], this.dialogTxt1[1], this.dialogTxt2[0], this.dialogTxt2[1], this.blackCover,
       this.icon.work.button, this.icon.work.txt, this.icon.work.choose.sprite, this.icon.work.dialog.sprite,
       this.icon.leisure.button, this.icon.leisure.txt, this.icon.leisure.choose.sprite,
-      this.icon.hometown.button, this.icon.hometown.txt, this.icon.hometown.choose.sprite]);
+      this.icon.hometown.button, this.icon.hometown.txt, this.icon.hometown.choose.sprite, this.leisureLock, this.hometownLock]);
 
     // make tweens
     this.makeStartTween();
@@ -203,7 +207,7 @@ HomeScene.prototype = {
     utils.addExistingMultiple([this.blackCover, this.topDialog, this.dialogTxt1[0], this.dialogTxt1[1], this.dialogTxt2[0], this.dialogTxt2[1]]);
     utils.addExistingMultiple([this.icon.work.button, this.icon.work.txt, this.icon.work.choose.sprite, this.icon.work.dialog.sprite,
       this.icon.leisure.button, this.icon.leisure.txt, this.icon.leisure.choose.sprite,
-     this.icon.hometown.button, this.icon.hometown.txt,  this.icon.hometown.choose.sprite]);
+     this.icon.hometown.button, this.icon.hometown.txt,  this.icon.hometown.choose.sprite, this.leisureLock, this.hometownLock]);
 
     // disable all buttons
     this.disableAllButtons();
@@ -258,6 +262,11 @@ HomeScene.prototype = {
     this.iconWorkTxtIn.start();
     this.iconLeisureTxtIn.start();
     this.iconHometownTxtIn.start();
+
+    // fade in locks
+    this.leisureLockIn.start();
+    this.hometownLockIn.start();
+
     game.time.events.add(Phaser.Timer.SECOND * 1, this.enableIconButtons, this);
   },
 
@@ -359,6 +368,9 @@ HomeScene.prototype = {
     this.iconHometownOut = game.add.tween(this.icon.hometown.button).to({alpha: 0}, this.icon.speed, this.tween.methodLinear, false);  
     this.iconHometownChooseIn = game.add.tween(this.icon.hometown.choose.sprite).to({alpha: 0.6}, this.tween.speed, this.tween.methodLinear, false);  
     this.iconHometownChooseOut = game.add.tween(this.icon.hometown.choose.sprite).to({alpha: 0}, this.tween.speed, this.tween.methodLinear, false);  
+
+    this.leisureLockIn = game.add.tween(this.leisureLock).to({alpha: 1}, this.icon.speed, this.tween.methodLinear, false, this.joseph.speed + this.icon.delay);  
+    this.hometownLockIn = game.add.tween(this.hometownLock).to({alpha: 1}, this.icon.speed, this.tween.methodLinear, false, this.joseph.speed + this.icon.delay);  
   },
 
   makeIconButtons:function(){
@@ -388,38 +400,38 @@ HomeScene.prototype = {
     this.docGroupIn = game.add.tween(this.docGroup).to({ alpha: 1, y:this.documentButton.y+this.documentButton.height/2 - this.boxDistance}, this.tween.boxSpeed, this.tween.methodLinear, false);
     this.docGroupBack = game.add.tween(this.docGroup).to({ alpha: 0, y:this.documentButton.y+this.documentButton.height/2 - this.boxDistance + this.tween.boxDistance}, this.tween.boxSpeed, this.tween.methodLinear, false);
     this.docGroupOut = game.add.tween(this.docGroup).to({ alpha: 0}, this.tween.boxSpeed, this.tween.methodLinear, false);
-    this.docAnnoIn = game.add.tween(this.docAnno).to({ alpha: 1}, this.tween.boxSpeed, this.tween.methodLinear, false);
-    this.docAnnoOut = game.add.tween(this.docAnno).to({ alpha: 0}, this.tween.boxSpeed, this.tween.methodLinear, false);
+    // this.docAnnoIn = game.add.tween(this.docAnno).to({ alpha: 1}, this.tween.boxSpeed, this.tween.methodLinear, false);
+    // this.docAnnoOut = game.add.tween(this.docAnno).to({ alpha: 0}, this.tween.boxSpeed, this.tween.methodLinear, false);
 
     this.saddleGroupIn = game.add.tween(this.saddleGroup).to({ alpha: 1, y:this.saddleButton.y+this.saddleButton.height/2 - this.boxDistance}, this.tween.boxSpeed, this.tween.methodLinear, false);
     this.saddleGroupBack = game.add.tween(this.saddleGroup).to({ alpha: 0, y:this.saddleButton.y+this.saddleButton.height/2 - this.boxDistance + this.tween.boxDistance}, this.tween.boxSpeed, this.tween.methodLinear, false);
     this.saddleGroupOut = game.add.tween(this.saddleGroup).to({ alpha: 0}, this.tween.boxSpeed, this.tween.methodLinear, false);
-    this.saddleAnnoIn = game.add.tween(this.saddleAnno).to({ alpha: 1}, this.tween.boxSpeed, this.tween.methodLinear, false);
-    this.saddleAnnoOut = game.add.tween(this.saddleAnno).to({ alpha: 0}, this.tween.boxSpeed, this.tween.methodLinear, false);
+    // this.saddleAnnoIn = game.add.tween(this.saddleAnno).to({ alpha: 1}, this.tween.boxSpeed, this.tween.methodLinear, false);
+    // this.saddleAnnoOut = game.add.tween(this.saddleAnno).to({ alpha: 0}, this.tween.boxSpeed, this.tween.methodLinear, false);
 
     this.stickGroupIn = game.add.tween(this.stickGroup).to({ alpha: 1, y:this.stickButton.y+this.stickButton.height/2 - this.boxDistance}, this.tween.boxSpeed, this.tween.methodLinear, false);
     this.stickGroupBack = game.add.tween(this.stickGroup).to({ alpha: 0, y:this.stickButton.y+this.stickButton.height/2 - this.boxDistance + this.tween.boxDistance}, this.tween.boxSpeed, this.tween.methodLinear, false);
     this.stickGroupOut = game.add.tween(this.stickGroup).to({ alpha: 0}, this.tween.boxSpeed, this.tween.methodLinear, false);
-    this.stickAnnoIn = game.add.tween(this.stickAnno).to({ alpha: 1}, this.tween.boxSpeed, this.tween.methodLinear, false);
-    this.stickAnnoOut = game.add.tween(this.stickAnno).to({ alpha: 0}, this.tween.boxSpeed, this.tween.methodLinear, false);
+    // this.stickAnnoIn = game.add.tween(this.stickAnno).to({ alpha: 1}, this.tween.boxSpeed, this.tween.methodLinear, false);
+    // this.stickAnnoOut = game.add.tween(this.stickAnno).to({ alpha: 0}, this.tween.boxSpeed, this.tween.methodLinear, false);
 
     this.hatGroupIn = game.add.tween(this.hatGroup).to({ alpha: 1, y:this.hatButton.y+this.hatButton.height/2 - this.boxDistance}, this.tween.boxSpeed, this.tween.methodLinear, false);
     this.hatGroupBack = game.add.tween(this.hatGroup).to({ alpha: 0, y:this.hatButton.y+this.hatButton.height/2 - this.boxDistance + this.tween.boxDistance}, this.tween.boxSpeed, this.tween.methodLinear, false);
     this.hatGroupOut = game.add.tween(this.hatGroup).to({ alpha: 0}, this.tween.boxSpeed, this.tween.methodLinear, false);
-    this.hatAnnoIn = game.add.tween(this.hatAnno).to({ alpha: 1}, this.tween.boxSpeed, this.tween.methodLinear, false);
-    this.hatAnnoOut = game.add.tween(this.hatAnno).to({ alpha: 0}, this.tween.boxSpeed, this.tween.methodLinear, false);
+    // this.hatAnnoIn = game.add.tween(this.hatAnno).to({ alpha: 1}, this.tween.boxSpeed, this.tween.methodLinear, false);
+    // this.hatAnnoOut = game.add.tween(this.hatAnno).to({ alpha: 0}, this.tween.boxSpeed, this.tween.methodLinear, false);
 
     this.raincoatGroupIn = game.add.tween(this.raincoatGroup).to({ alpha: 1, y:this.raincoatButton.y+this.raincoatButton.height/2 - this.boxDistance}, this.tween.boxSpeed, this.tween.methodLinear, false);
     this.raincoatGroupBack = game.add.tween(this.raincoatGroup).to({ alpha: 0, y:this.raincoatButton.y+this.raincoatButton.height/2 - this.boxDistance + this.tween.boxDistance}, this.tween.boxSpeed, this.tween.methodLinear, false);
     this.raincoatGroupOut = game.add.tween(this.raincoatGroup).to({ alpha: 0}, this.tween.boxSpeed, this.tween.methodLinear, false);
-    this.raincoatAnnoIn = game.add.tween(this.raincoatAnno).to({ alpha: 1}, this.tween.boxSpeed, this.tween.methodLinear, false);
-    this.raincoatAnnoOut = game.add.tween(this.raincoatAnno).to({ alpha: 0}, this.tween.boxSpeed, this.tween.methodLinear, false);
+    // this.raincoatAnnoIn = game.add.tween(this.raincoatAnno).to({ alpha: 1}, this.tween.boxSpeed, this.tween.methodLinear, false);
+    // this.raincoatAnnoOut = game.add.tween(this.raincoatAnno).to({ alpha: 0}, this.tween.boxSpeed, this.tween.methodLinear, false);
 
     this.umbrellaGroupIn = game.add.tween(this.umbrellaGroup).to({ alpha: 1, y:this.umbrellaButton.y+this.umbrellaButton.height/2 - this.boxDistance}, this.tween.boxSpeed, this.tween.methodLinear, false);
     this.umbrellaGroupBack = game.add.tween(this.umbrellaGroup).to({ alpha: 0, y:this.umbrellaButton.y+this.umbrellaButton.height/2 - this.boxDistance + this.tween.boxDistance}, this.tween.boxSpeed, this.tween.methodLinear, false);
     this.umbrellaGroupOut = game.add.tween(this.umbrellaGroup).to({ alpha: 0}, this.tween.boxSpeed, this.tween.methodLinear, false);
-    this.umbrellaAnnoIn = game.add.tween(this.umbrellaAnno).to({ alpha: 1}, this.tween.boxSpeed, this.tween.methodLinear, false);
-    this.umbrellaAnnoOut = game.add.tween(this.umbrellaAnno).to({ alpha: 0}, this.tween.boxSpeed, this.tween.methodLinear, false);
+    // this.umbrellaAnnoIn = game.add.tween(this.umbrellaAnno).to({ alpha: 1}, this.tween.boxSpeed, this.tween.methodLinear, false);
+    // this.umbrellaAnnoOut = game.add.tween(this.umbrellaAnno).to({ alpha: 0}, this.tween.boxSpeed, this.tween.methodLinear, false);
   },
 
   makeItemButtons:function(){
@@ -444,30 +456,32 @@ HomeScene.prototype = {
   },
 
   makeBoxTxts:function(){
+
     this.docBox = game.make.sprite(0, 0, 'home_b_dialog_box');
-    this.docTxt = game.make.text(0, 0, this.txt.doc, {font: "28px SansCJK", fill: 'white'});
-    this.docAnno = game.make.text(this.documentButton.x+this.documentButton.width/2, this.documentButton.y+this.documentButton.height/2, this.annoTxt.doc, {font: "28px SansCJK", fill: 'black'});
+    this.docTxt = game.make.text(0, 0, this.txt.doc, {font: "32px SansCJK", fill: 'white'});
+    // this.docAnno = game.make.text(this.documentButton.x+this.documentButton.width/2, this.documentButton.y+this.documentButton.height/2, this.annoTxt.doc, {font: "28px SansCJK", fill: 'black'});
     this.saddleBox = game.make.sprite(0, 0, 'home_b_dialog_box');
-    this.saddleTxt = game.make.text(0, 0, this.txt.saddle, {font: "28px SansCJK", fill: 'white'});
-    this.saddleAnno = game.make.text(this.saddleButton.x+this.saddleButton.width/2, this.saddleButton.y+this.saddleButton.height/2, this.annoTxt.saddle, {font: "28px SansCJK", fill: 'black'});
+    this.saddleTxt = game.make.text(0, 0, this.txt.saddle, {font: "32px SansCJK", fill: 'white'});
+    // this.saddleAnno = game.make.text(this.saddleButton.x+this.saddleButton.width/2, this.saddleButton.y+this.saddleButton.height/2, this.annoTxt.saddle, {font: "28px SansCJK", fill: 'black'});
     this.stickBox = game.make.sprite(0, 0, 'home_b_dialog_box');
-    this.stickTxt = game.make.text(0, 0, this.txt.stick, {font: "28px SansCJK", fill: 'white'});
-    this.stickAnno = game.make.text(this.stickButton.x+this.stickButton.width/2, this.stickButton.y+this.stickButton.height/2, this.annoTxt.stick, {font: "28px SansCJK", fill: 'black'});
+    this.stickTxt = game.make.text(0, 0, this.txt.stick, {font: "32px SansCJK", fill: 'white'});
+    // this.stickAnno = game.make.text(this.stickButton.x+this.stickButton.width/2, this.stickButton.y+this.stickButton.height/2, this.annoTxt.stick, {font: "28px SansCJK", fill: 'black'});
     this.hatBox = game.make.sprite(0, 0, 'home_b_dialog_box');
-    this.hatTxt = game.make.text(0, 0, this.txt.hat, {font: "28px SansCJK", fill: 'white'});
-    this.hatAnno = game.make.text(this.hatButton.x+this.hatButton.width/2, this.hatButton.y+this.hatButton.height/2, this.annoTxt.hat, {font: "28px SansCJK", fill: 'black'});
+    this.hatTxt = game.make.text(0, 0, this.txt.hat, {font: "32px SansCJK", fill: 'white'});
+    // this.hatAnno = game.make.text(this.hatButton.x+this.hatButton.width/2, this.hatButton.y+this.hatButton.height/2, this.annoTxt.hat, {font: "28px SansCJK", fill: 'black'});
     this.raincoatBox = game.make.sprite(0, 0, 'home_b_dialog_box');
-    this.raincoatTxt = game.make.text(0, 0, this.txt.raincoat, {font: "28px SansCJK", fill: 'white'});
-    this.raincoatAnno = game.make.text(this.raincoatButton.x+this.raincoatButton.width/2, this.raincoatButton.y+this.raincoatButton.height/2, this.annoTxt.raincoat, {font: "28px SansCJK", fill: 'black'});
+    this.raincoatTxt = game.make.text(0, 0, this.txt.raincoat, {font: "32px SansCJK", fill: 'white'});
+    // this.raincoatAnno = game.make.text(this.raincoatButton.x+this.raincoatButton.width/2, this.raincoatButton.y+this.raincoatButton.height/2, this.annoTxt.raincoat, {font: "28px SansCJK", fill: 'black'});
     this.umbrellaBox = game.make.sprite(0, 0, 'home_b_dialog_box');
-    this.umbrellaTxt = game.make.text(0, 0, this.txt.umbrella, {font: "28px SansCJK", fill: 'white'});
-    this.umbrellaAnno = game.make.text(this.umbrellaButton.x+this.umbrellaButton.width/2, this.umbrellaButton.y+this.umbrellaButton.height/2, this.annoTxt.umbrella, {font: "28px SansCJK", fill: 'black'});
+    this.umbrellaTxt = game.make.text(0, 0, this.txt.umbrella, {font: "32px SansCJK", fill: 'white'});
+    // this.umbrellaAnno = game.make.text(this.umbrellaButton.x+this.umbrellaButton.width/2, this.umbrellaButton.y+this.umbrellaButton.height/2, this.annoTxt.umbrella, {font: "28px SansCJK", fill: 'black'});
   },
 
   addTxtBoxGroups:function(){
     this.docGroup = game.add.group(); 
     this.docGroup.x = this.documentButton.x + this.documentButton.width/2;
     this.docGroup.y = this.documentButton.y + this.documentButton.height/2 - this.boxDistance + this.tween.boxDistance;
+
 
     this.saddleGroup = game.add.group(); 
     this.saddleGroup.x = this.saddleButton.x + this.saddleButton.width/2;
@@ -486,12 +500,19 @@ HomeScene.prototype = {
     this.umbrellaGroup.y = this.umbrellaButton.y + this.umbrellaButton.height/2 - this.boxDistance + this.tween.boxDistance;
 
     this.raincoatGroup = game.add.group(); 
-    this.raincoatGroup.x = this.raincoatButton.x + this.raincoatButton.width/2;
+    // this.raincoatGroup.x = this.raincoatButton.x + this.raincoatButton.width/2;
+    // button is not center 0
+    // if(this.documentButton.x + this.documentButton.width/2 + this.docBox.width/2 > WIDTH - 80){
+      this.raincoatGroup.x = WIDTH - 80 - this.docBox.width/2;
+    // }else if(this.documentButton.x + this.documentButton.width/2 - this.docBox.width/2 < 80){ 
+      // this.docGroup.x = 80 + this.docBox.width/2;
+    // }else{
+    // }
     this.raincoatGroup.y = this.raincoatButton.y + this.raincoatButton.height/2 - this.boxDistance + this.tween.boxDistance;
 
     utils.addExistingMultiple([this.docBox, this.docTxt, this.saddleBox, this.saddleTxt, this.hatBox, this.hatTxt, this.stickBox, this.stickTxt,
-      this.umbrellaBox, this.umbrellaTxt, this.raincoatBox, this.raincoatTxt, this.docAnno, this.saddleAnno, this.hatAnno, this.stickAnno,
-      this.umbrellaAnno, this.raincoatAnno]);
+      this.umbrellaBox, this.umbrellaTxt, this.raincoatBox, this.raincoatTxt]);
+    //, this.docAnno, this.saddleAnno, this.hatAnno, this.stickAnno, this.umbrellaAnno, this.raincoatAnno]);
 
     this.docGroup.addMultiple([this.docBox, this.docTxt]);
     this.saddleGroup.addMultiple([this.saddleBox, this.saddleTxt]);
@@ -545,96 +566,96 @@ HomeScene.prototype = {
     this.disableButton(this.documentButton);
     this.docGroupOut.start();
     this.documentOut.start();
-    this.docAnnoOut.start();
+    // this.docAnnoOut.start();
     this.addClickCount();
   },
   documentOver:function(){
     this.docGroupIn.start();
-    this.docAnnoIn.start();
+    // this.docAnnoIn.start();
   },
   documentOut:function(){
     this.docGroupBack.start();
-    this.docAnnoOut.start();
+    // this.docAnnoOut.start();
   },
 
   saddleOnClick: function (){
     this.disableButton(this.saddleButton);
     this.saddleGroupOut.start();
     this.saddleOut.start();
-    this.saddleAnnoOut.start();
+    // this.saddleAnnoOut.start();
     this.addClickCount();
   },
   saddleOver:function(){
     this.saddleGroupIn.start();
-    this.saddleAnnoIn.start();
+    // this.saddleAnnoIn.start();
   },
   saddleOut:function(){
     this.saddleGroupBack.start();
-    this.saddleAnnoOut.start();
+    // this.saddleAnnoOut.start();
   },
 
   stickOnClick: function (){
     this.disableButton(this.stickButton);
     this.stickGroupOut.start();
     this.stickOut.start();
-    this.stickAnnoOut.start();
+    // this.stickAnnoOut.start();
     this.addClickCount();
   }, 
   stickOver:function(){
     this.stickGroupIn.start();
-    this.stickAnnoIn.start();
+    // this.stickAnnoIn.start();
   },
   stickOut:function(){
     this.stickGroupBack.start();
-    this.stickAnnoOut.start();
+    // this.stickAnnoOut.start();
   },
 
   hatOnClick: function (){
     this.disableButton(this.hatButton);
     this.hatGroupOut.start();
     this.hatOut.start();
-    this.hatAnnoOut.start();
+    // this.hatAnnoOut.start();
     this.addClickCount();
   }, 
   hatOver:function(){
     this.hatGroupIn.start();
-    this.hatAnnoIn.start();
+    // this.hatAnnoIn.start();
   },
   hatOut:function(){
     this.hatGroupBack.start();
-    this.hatAnnoOut.start();
+    // this.hatAnnoOut.start();
   },
 
   raincoatOnClick: function (){
     this.disableButton(this.raincoatButton);
     this.raincoatGroupOut.start();
     this.raincoatOut.start();
-    this.raincoatAnnoOut.start();
+    // this.raincoatAnnoOut.start();
     this.addClickCount();
   }, 
   raincoatOver:function(){
     this.raincoatGroupIn.start();
-    this.raincoatAnnoIn.start();
+    // this.raincoatAnnoIn.start();
   },
   raincoatOut:function(){
     this.raincoatGroupBack.start();
-    this.raincoatAnnoOut.start();
+    // this.raincoatAnnoOut.start();
   },
 
   umbrellaOnClick: function (){
     this.disableButton(this.umbrellaButton);
     this.umbrellaGroupOut.start();
     this.umbrellaOut.start();
-    this.umbrellaAnnoOut.start();
+    // this.umbrellaAnnoOut.start();
     this.addClickCount();
   }, 
   umbrellaOver:function(){
     this.umbrellaGroupIn.start();
-    this.umbrellaAnnoIn.start();
+    // this.umbrellaAnnoIn.start();
   },
   umbrellaOut:function(){
     this.umbrellaGroupBack.start();
-    this.umbrellaAnnoOut.start();
+    // this.umbrellaAnnoOut.start();
   },
 
   enableItemButtons:function(){

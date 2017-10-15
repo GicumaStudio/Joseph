@@ -180,7 +180,7 @@ MrtScene.prototype = {
     //     '「謝謝你們唷！」\n對於熱心的路人衷心感謝，\n同時也因為溫暖的人情感到開心。']
     //   }
     // },
-    1:{
+    0:{
       name: "tail_stepped",
       number: "14",
       score: 0,
@@ -193,7 +193,7 @@ MrtScene.prototype = {
       options:null,
       ending_txts:null
     },
-    0:{
+    1:{
       name: "scared_kid",
       number: "15",
       score: {A: 1,B: 3},
@@ -948,5 +948,21 @@ MrtScene.prototype = {
     this.pawBlinkSpeed = settingsJSON.arcade_scene.paw_blink_speed;
     this.option.inDelay = settingsJSON.arcade_scene.option_in_delay;
     this.tween.txtSpeed = settingsJSON.arcade_scene.txt_speed;
+    // texts json
+    thisScene = "Mrt";
+    
+    this.dialogue.txt.start = textsJSON.work[thisScene].dialogueStart; 
+
+    for (var i = 0; i < this.brighter_items.size; i++) {
+      this.brighter_items.item[i].description.txt = textsJSON.work[thisScene].brighterItems[i];
+    }
+
+    for (var i = 0; i < this.events.size; i++) {
+      this.events[i].starting_txts = textsJSON.work[thisScene].events[i].starting;
+      if(this.events[i].options){
+        this.events[i].options = textsJSON.work[thisScene].events[i].options;
+        this.events[i].ending_txts = textsJSON.work[thisScene].events[i].ending;
+      }
+    }
   }
 };

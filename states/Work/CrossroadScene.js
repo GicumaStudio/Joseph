@@ -216,57 +216,67 @@ CrossroadScene.prototype = {
     size: 3,
     bad_mood_list:[2],
     0:{
-      name: "crowded_gate",
+      name: "read_fix",
       number: "01",
-      score:{A: +1,B:0} ,
+      score:{A: 1,B:0} ,
       starting_txts:[
-        '「奇怪，怎麼等了這麼久電梯都還沒到？」',
+        '「終於走到路口前了，看我一鼓作氣走過去！\n照這個速度前進今天絕對有機會破紀錄的。」',
+        '「欸？Joseph你怎麼不走了？\n現在可只走了十字路口的一半而已啊。」',
+        '你用手杖探索了一下確認沒有東西擋在前面，',
+        '車流的速度聽起來也很正常，\n旁邊的行人也都走得十分自然，'
       ],
       options:{
-        Q:'如果再等下去可能就會錯過這一班捷運了，\n短短五分鐘也許就是能否破紀錄的決定性差距，\n你決定……',
-        A:'[ 「還是去搭電扶梯好了」（果斷放棄，去搭電扶梯） ]',
-        B:'[ 「應該快到了，再等一下吧」（不死心繼續等電梯） ]',
+        Q:'覺得應該沒有什麼大問題的你，這個時候會',
+        A:'[ 下指令給 Joseph 幫你找路 ]',
+        B:'[ 「我們還是往外面走一點好了。」（稍稍往斑馬線外面走） ]',
         bad_option:'None'
       },
       ending_txts:{
-        A:['想想可能是電梯故障了，\n所以就決定搭電扶梯，',
-        '想起以前有次搭電扶梯還不小心踩到 Joseph，\n嘴角不禁微微的上揚：',
-        '「那次你連一聲都沒哼，真是我的好小子！」'],
-        B:['「叮！」電梯終於到了，\n但是出來的是一群嬉鬧的國中生，',
-        '晃動的書包撞擊了你與 Joseph，\n力道雖不致受傷，卻差點讓你站不穩腳步，',
-        '「這群小朋友也太沒有禮貌了吧！」\n喃喃抱怨後想進電梯，卻發現門又關上了。']
+        A:[
+          '「Find the way」\n你下了指令之後， Joseph 開始往前走，\n但卻與平常的路線偏移了許多。',
+          '其他路人聽起來也都朝著同樣的方向前進，\n你心裡雖然有些疑惑但也不太擔心。',
+          '過了馬路之後，你聽到鑽頭鑽地的聲音，\n才想起來今天這邊要開始施工鋪路。'
+        ],
+        B:[
+          '我們還是往外面走一點好了。」',
+          '雖然有點危險，\n不過你選擇繞開 Joseph 覺得有危險的區域，',
+          '卻感覺路面凹凸不平、十分難走。\n過了馬路之後，你聽到鑽頭鑽地的聲音，',
+          '才想起來今天這邊要開始施工鋪路。'
+        ]
       }
     },
     1:{
-      name: "elevator_down",
+      name: "dog_scared",
       number: "02",
       score:{A: 1,B:+3} ,
       starting_txts:[
-        '「奇怪，怎麼等了這麼久電梯都還沒到？」',
+        '「才剛走到路口就馬上變綠燈了真幸運，\n星座運勢說今天運氣會不錯看來是真的呢！」',
+        'Joseph 突然停下腳步，\n前方隨即傳來了汽車碰撞的聲音和喇叭聲，\n旁人的腳步突然都慌亂了起來。',
+        '「哎呀！剛講到運氣不錯馬上就碰到車禍了，\n聽駕駛們還有精神互罵，看來都沒大礙吧。」'
       ],
       options:{
-        Q:'如果再等下去可能就會錯過這一班捷運了，\n短短五分鐘也許就是能否破紀錄的決定性差距，\n你決定……',
-        A:'[ 「還是去搭電扶梯好了」（果斷放棄，去搭電扶梯） ]',
-        B:'[ 「應該快到了，再等一下吧」（不死心繼續等電梯） ]',
+        Q:'這時有個年輕人問你需不需要幫忙過馬路，\n你爽朗地回答：',
+        A:'[ 「好啊那就麻煩你了！」 ]',
+        B:'[ 「沒關係，我的導盲犬很厲害的喔～」 ]',
         bad_option:'None'
       },
       ending_txts:{
-        A:['想想可能是電梯故障了，\n所以就決定搭電扶梯，',
-        '想起以前有次搭電扶梯還不小心踩到 Joseph，\n嘴角不禁微微的上揚：',
-        '「那次你連一聲都沒哼，真是我的好小子！」'],
-        B:['「叮！」電梯終於到了，\n但是出來的是一群嬉鬧的國中生，',
-        '晃動的書包撞擊了你與 Joseph，\n力道雖不致受傷，卻差點讓你站不穩腳步，',
-        '「這群小朋友也太沒有禮貌了吧！」\n喃喃抱怨後想進電梯，卻發現門又關上了。']
+        A:['年輕人很有朝氣地帶你順利過了馬路，\n你心裡默默覺得台灣的小朋友真的很棒。'],
+        B:['Joseph熟練地繞開了車禍現場，\n你聽到後方傳來那個年輕人的小聲讚嘆。']
       }
     },
     2:{
-      name: "staff_help",
+      name: "bike_motor_right_turn",
       number: "03",
       score: -2,
       starting_txts:[
-        '上班時間的捷運站真是擠得讓人喘不過氣，\n正當你擔心會趕不上這班捷運時，有人說：',
-        '「先生您好，我是捷運的站務人員，\n需要我幫您引導到月台前面嗎？」',
-        '鬆了一口氣的你馬上答應了他的好意，\n覺得有些不好意思卻也覺得十分暖心。'
+        '「欸！沒長眼睛啊！」',
+        '一台機車突然從你面前呼嘯而過，\n安全帽後的怒罵聲字字清晰地飆入你的耳裡。',
+        '還好你有停下來多確認幾秒，\n不然有可能就會有人受傷了。',
+        '「快點快點！快遲到了！」',
+        '正當你終於要跨出第一步時，\n後方又有兩個學生騎著腳踏車突然衝出。',
+        '除了差一點撞著了你之外，\n還讓你連路口也來不及過了。',
+        '「才剛出門就出師不利啊，\n沒關係，這才更有挑戰性！」'
       ],
       options:null,
       ending_txts:null
@@ -670,7 +680,11 @@ CrossroadScene.prototype = {
   // ******************
 
   initDialogue:function(){
-    this.dialogue.currentTxt = this.dialogue.txt.start;
+    if(this.events[this.choseEventNumber].options){
+      this.dialogue.currentTxt = this.dialogue.txt.start.concat(this.events[this.choseEventNumber].starting_txts);
+    }else{
+      this.dialogue.currentTxt = this.dialogue.txt.start;
+    }
     this.dialogue_txt.text = this.dialogue.currentTxt[this.dialogue.currentTxtInd];
     game.add.tween(this.dialogue_button).to({alpha:1, y:1080}, this.tween.txtSpeed, this.tween.method.cubicOut,true);
     game.add.tween(this.dialogue_txt).to({alpha:1, y:this.dialogue.txtLocation.y}, this.tween.txtSpeed, this.tween.method.cubicOut,true);
@@ -960,5 +974,22 @@ CrossroadScene.prototype = {
     this.pawBlinkSpeed = settingsJSON.arcade_scene.paw_blink_speed;
     this.option.inDelay = settingsJSON.arcade_scene.option_in_delay;
     this.tween.txtSpeed = settingsJSON.arcade_scene.txt_speed;
+
+    // texts json
+    thisScene = "Crossroad";
+    
+    this.dialogue.txt.start = textsJSON.work[thisScene].dialogueStart; 
+
+    for (var i = 0; i < this.brighter_items.size; i++) {
+      this.brighter_items.item[i].description.txt = textsJSON.work[thisScene].brighterItems[i];
+    }
+
+    for (var i = 0; i < this.events.size; i++) {
+      this.events[i].starting_txts = textsJSON.work[thisScene].events[i].starting;
+      if(this.events[i].options){
+        this.events[i].options = textsJSON.work[thisScene].events[i].options;
+        this.events[i].ending_txts = textsJSON.work[thisScene].events[i].ending;
+      }
+    }
   }
 };

@@ -54,16 +54,16 @@ DogSchoolScene.prototype = {
       tweenIn: null
     },
     friendly:{
-      titleName:'end_city_title_normal',
-      txtName:'end_city_txt_normal'
+      titleName:'end_city_title_good',
+      txtName:'end_city_txt_good'
     },
     normal:{
       titleName:'end_city_title_normal',
       txtName:'end_city_txt_normal'
     },
     unfriendly:{
-      titleName:'end_city_title_normal',
-      txtName:'end_city_txt_normal'
+      titleName:'end_city_title_bad',
+      txtName:'end_city_txt_bad'
     }
   },
   startingTxtInd: 0,
@@ -609,18 +609,26 @@ DogSchoolScene.prototype = {
   // ******************
   planOnClick:function(){
     // TODO
+    window.open('https://www.zeczec.com/projects/joseph-guidedog');
+
   },
   shareOnClick:function(){
     // TODO
+    FB.ui({
+        method: 'share',
+        href: 'Joseph-red-cape.com',
+      }, function(response){});
   },
   replayOnClick:function(){
     // TODO
+    this.ResetVars();
+    game.state.start("GameMenu");
   },
   fbOnClick:function(){
-    // TODO
+    window.open('https://www.facebook.com/gicumadesignstudio/');
   },
   gicumaOnClick:function(){
-    // TODO
+    window.open('https://www.gicumastudio.com/');
   },
 
   disableAllButtons:function(){
@@ -648,6 +656,10 @@ DogSchoolScene.prototype = {
   // ******************
   // HELPER functions
   // ******************
+
+  ResetVars:function(){
+    total_score = 0;
+  },
 
   checkStartingTxtStyleInd:function(i_id){
     if(i_id > this.startingTxtList.styles.switchInd){

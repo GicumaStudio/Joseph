@@ -271,7 +271,9 @@ ArcadeScene.prototype = {
       number: "08",
       score: -3,
       starting_txts:[
-
+        '「鈴鈴──！」後方傳來了腳踏車的響鈴聲，\n但騎樓太過狹窄，沒有辦法側身讓對方先過，',
+        '你只能一直聽著他在身後的嘖嘖聲，\n「喂！就不能讓個路嗎？我在趕時間啦！」',
+        '聽到他不耐的催促，腳步不禁慌忙了起來。\n連騎樓其實是禁止騎腳踏車的事情都忘了。'
       ],
       options: null,
       ending_txts:null, 
@@ -673,7 +675,7 @@ ArcadeScene.prototype = {
     this.dialogue.currentTxtInd = 0
     this.dialogue_txt.text = this.dialogue.currentTxt[this.dialogue.currentTxtInd];
 
-    // check if 2 \n
+    // check if 2
     if(this.dialogue.currentTxt[this.dialogue.currentTxtInd].split('\n').length > 2){
       this.dialogue_txt.y = this.dialogue.txtLocation.y - thirdLineOffset;
     }else{
@@ -951,5 +953,24 @@ ArcadeScene.prototype = {
     this.pawBlinkSpeed = settingsJSON.arcade_scene.paw_blink_speed;
     this.option.inDelay = settingsJSON.arcade_scene.option_in_delay;
     this.tween.txtSpeed = settingsJSON.arcade_scene.txt_speed;
+
+
+    // texts json
+    thisScene = "Arcade";
+    
+    this.dialogue.txt.start = textsJSON.work[thisScene].dialogueStart; 
+
+    for (var i = 0; i < this.brighter_items.size; i++) {
+      this.brighter_items.item[i].description.txt = textsJSON.work[thisScene].brighterItems[i];
+    }
+
+    for (var i = 0; i < this.events.size; i++) {
+      this.events[i].starting_txts = textsJSON.work[thisScene].events[i].starting;
+      if(this.events[i].options){
+        this.events[i].options = textsJSON.work[thisScene].events[i].options;
+        this.events[i].ending_txts = textsJSON.work[thisScene].events[i].ending;
+      }
+    }
+
   }
 };

@@ -202,7 +202,7 @@ MrtStationScene.prototype = {
       number: "10",
       score:{A: 1,B:-1} ,
       starting_txts:[
-        '「奇怪，怎麼等了這麼久電梯都還沒到？」',
+        '「奇怪，怎麼等了這麼久電梯都還沒到？」'
       ],
       options:{
         Q:'如果再等下去可能就會錯過這一班捷運了，\n短短五分鐘也許就是能否破紀錄的決定性差距，\n你決定……',
@@ -938,5 +938,22 @@ MrtStationScene.prototype = {
     this.pawBlinkSpeed = settingsJSON.arcade_scene.paw_blink_speed;
     this.option.inDelay = settingsJSON.arcade_scene.option_in_delay;
     this.tween.txtSpeed = settingsJSON.arcade_scene.txt_speed;
+
+    // texts json
+    thisScene = "MrtStation";
+    
+    this.dialogue.txt.start = textsJSON.work[thisScene].dialogueStart; 
+
+    for (var i = 0; i < this.brighter_items.size; i++) {
+      this.brighter_items.item[i].description.txt = textsJSON.work[thisScene].brighterItems[i];
+    }
+
+    for (var i = 0; i < this.events.size; i++) {
+      this.events[i].starting_txts = textsJSON.work[thisScene].events[i].starting;
+      if(this.events[i].options){
+        this.events[i].options = textsJSON.work[thisScene].events[i].options;
+        this.events[i].ending_txts = textsJSON.work[thisScene].events[i].ending;
+      }
+    }
   }
 };
