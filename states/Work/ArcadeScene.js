@@ -404,7 +404,7 @@ ArcadeScene.prototype = {
 
   CheckMusic:function(){
     if(musicPlaying1){
-      if (musicPlayer1.name !== this.musicName && gameOptions.playMusic) {
+      if (musicPlayer1.name != this.musicName && gameOptions.playMusic) {
         // musicPlayer.stop();
         musicPlayer1.fadeOut(musicFadeSpeed);
         musicPlaying1 = false;
@@ -415,7 +415,7 @@ ArcadeScene.prototype = {
         musicPlayer2.fadeIn(musicFadeSpeed);
       }
     }else if(musicPlaying2){
-      if (musicPlayer2.name !== this.musicName && gameOptions.playMusic) {
+      if (musicPlayer2.name != this.musicName && gameOptions.playMusic) {
         // musicPlayer.stop();
         musicPlayer2.fadeOut(musicFadeSpeed);
         musicPlaying2 = false;
@@ -431,6 +431,15 @@ ArcadeScene.prototype = {
       musicPlayer1.loop = true;
       // musicPlayer.play();
       musicPlayer1.fadeIn(musicFadeSpeed);
+    }
+  },
+
+  CheckMusicMood:function(){
+    if(this.mood.status == 'bad'){
+      game.add.tween(moodPlayerHigh).to({volume:0}, musicFadeSpeed, this.tween.method.linear, true);
+      game.add.tween(moodPlayerLow).to({volume:1}, musicFadeSpeed, this.tween.method.linear, true);
+      moodPlayingHigh = false;
+      moodPlayingLow = true;
     }
   },
 
@@ -728,6 +737,7 @@ ArcadeScene.prototype = {
         // end
         this.changeTime();
         this.checkMood();
+        this.CheckMusicMood();
         this.situationFadeOut();
       }else{
         this.option.currentOption = this.events[this.choseEventNumber].number;
@@ -746,8 +756,8 @@ ArcadeScene.prototype = {
 
   setRandomEvent:function(){
     // set random number, test first
-    this.choseEventNumber = 5;
-    // this.choseEventNumber = utils.getRandomInt(this.events.size);
+    // this.choseEventNumber = 5;
+    this.choseEventNumber = utils.getRandomInt(this.events.size);
 
     // set mood in front if no options
     // if(this.events[this.choseEventNumber].options == null){

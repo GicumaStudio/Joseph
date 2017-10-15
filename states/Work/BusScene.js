@@ -510,6 +510,14 @@ BusScene.prototype = {
     }
   },
 
+  CheckMusicMood:function(){
+    if(this.mood.status == 'bad'){
+      game.add.tween(moodPlayerHigh).to({volume:0}, musicFadeSpeed, this.tween.method.linear, true);
+      game.add.tween(moodPlayerLow).to({volume:1}, musicFadeSpeed, this.tween.method.linear, true);
+      moodPlayingHigh = false;
+      moodPlayingLow = true;
+    }
+  },
   // ******************
   // BRIGHTER ITEM functions
   // ******************
@@ -806,6 +814,7 @@ BusScene.prototype = {
         // end
         this.changeTime();
         this.checkMood();
+        this.CheckMusicMood();
         this.situationFadeOut();
       }else{
         this.option.currentOption = this.events[this.choseEventNumber].number;

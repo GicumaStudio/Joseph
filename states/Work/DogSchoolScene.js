@@ -372,17 +372,37 @@ DogSchoolScene.prototype = {
     game.time.events.add(Phaser.Timer.SECOND * (1 + this.tween.introSpeed/1000), this.initBGBlur, this);
     game.time.events.add(Phaser.Timer.SECOND * (2.5 + this.tween.introSpeed/1000), this.initTxt, this);
 
-    // if (musicPlayer.name !== "dangerous" && gameOptions.playMusic) {
-    //   musicPlayer.stop();
-    //   musicPlayer = game.add.audio('dangerous');
-    //   musicPlayer.loop = true;
-    //   musicPlayer.play();
-    // }
+    this.CheckMusic();
   },
-  // render:function() {
-  //   // Sprite debug info
-  //   game.debug.spriteInfo(this.city_level.title.sprite, 32, 32);
-  // },
+
+  CheckMusic:function(){
+    if(musicPlaying1){
+      musicPlayer1.fadeOut(musicFadeSpeed);
+      musicPlaying1 = false;
+    } else if(musicPlaying2){
+      musicPlayer2.fadeOut(musicFadeSpeed);
+      musicPlaying2 = false; 
+    }
+
+    moodPlayerHigh.fadeOut(musicFadeSpeed);
+    moodPlayerLow.stop();
+
+    if(bgmPlaying){
+      bgmPlayer.fadeOut(musicFadeSpeed);
+    } 
+
+    if(this.score_ind == 1){
+      bgmPlayer = game.add.audio("work_fin_low"); 
+    }else if(this.score_ind == 2){
+      bgmPlayer = game.add.audio("work_fin_mid"); 
+    }else if(this.score_ind == 3){
+      bgmPlayer = game.add.audio("work_fin_high"); 
+    }
+
+    bgmPlayer.fadeIn(musicFadeSpeed);
+
+  },
+
   makeStartingTxts:function(){
     for (var i = 0; i < this.startingTxtLength; i++) {
       this.checkStartingTxtStyleInd(i);
@@ -656,6 +676,9 @@ DogSchoolScene.prototype = {
 
   ResetVars:function(){
     total_score = 0;
+
+    bgmPlaying = false;
+    bgmPlayer.fadeOut(musicFadeSpeed);
   },
 
   checkStartingTxtStyleInd:function(i_id){

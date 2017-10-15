@@ -9,6 +9,12 @@ gameOptions = {
     playMusic: true
 },
 musicFadeSpeed = 1000,
+bgmPlayer,
+bgmPlaying = false,
+moodPlayerHigh,
+moodPlayingHigh = false,
+moodPlayerLow,
+moodPlayingLow = false,
 musicPlayer1,
 musicPlaying1 = false,
 musicPlayer2,

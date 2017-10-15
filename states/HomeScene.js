@@ -226,12 +226,19 @@ HomeScene.prototype = {
   },
 
   create: function () {
-    // if (musicPlayer.name !== "dangerous" && gameOptions.playMusic) {
-    //   musicPlayer.stop();
-    //   musicPlayer = game.add.audio('dangerous');
-    //   musicPlayer.loop = true;
-    //   musicPlayer.play();
-    // }
+    this.CheckMusic();
+  },
+
+  CheckMusic:function(){
+    if(musicPlaying1){
+      // musicPlayer.stop();
+      musicPlayer1.fadeOut(musicFadeSpeed);
+      musicPlaying1 = false;
+    }else if(musicPlaying2){
+      // musicPlayer.stop();
+      musicPlayer2.fadeOut(musicFadeSpeed);
+      musicPlaying2 = false;
+    }
   },
 
   addClickCount:function(){

@@ -1,6 +1,7 @@
 var GameMenu = function() {};
 
 GameMenu.prototype = {
+  musicName:'work_crossroad',
   logoDelay: null,
   logoSpeed: null,
   buttonDelay: null,
@@ -111,16 +112,56 @@ GameMenu.prototype = {
   },
 
   create: function () {
-    // musicPlayer = game.add.audio('castle');
-    // musicPlayer.loop = true;
-    // musicPlayer.play();
-    // if (musicPlayer.name !== "castle" && gameOptions.playMusic) {
-    //   musicPlayer.stop();
-    //   musicPlayer = game.add.audio('castle');
-    //   musicPlayer.loop = true;
-    //   musicPlayer.play();
-    // }
+    // music use sidewalk also,
+    this.CheckMusic();
   },
+
+  CheckMusic:function(){
+    if(bgmPlaying){
+      if(bgmPlayer.name != "bgm_menu"){
+        bgmPlayer.fadeOut(musicFadeSpeed);
+        bgmPlayer = game.add.audio("bgm_menu");
+        bgmPlayer.loop = true;
+        bgmPlayer.fadeIn(musicFadeSpeed);
+      }
+    }else{
+      bgmPlayer = game.add.audio("bgm_menu");
+      bgmPlayer.loop = true;
+      bgmPlayer.fadeIn(musicFadeSpeed);
+      bgmPlaying = true;
+    }
+
+    if(musicPlaying1){
+      if (musicPlayer1.name != this.musicName && gameOptions.playMusic) {
+        // musicPlayer.stop();
+        musicPlayer1.fadeOut(musicFadeSpeed);
+        musicPlaying1 = false;
+        musicPlaying2 = true;
+        musicPlayer2 = game.add.audio(this.musicName);
+        musicPlayer2.loop = true;
+        // musicPlayer.play();
+        musicPlayer2.fadeIn(musicFadeSpeed);
+      }
+    }else if(musicPlaying2){
+      if (musicPlayer2.name != this.musicName && gameOptions.playMusic) {
+        // musicPlayer.stop();
+        musicPlayer2.fadeOut(musicFadeSpeed);
+        musicPlaying2 = false;
+        musicPlaying1 = true;
+        musicPlayer1 = game.add.audio(this.musicName);
+        musicPlayer1.loop = true;
+        // musicPlayer.play();
+        musicPlayer1.fadeIn(musicFadeSpeed);
+      }
+    }else{
+      musicPlaying1 = true;
+      musicPlayer1 = game.add.audio(this.musicName);
+      musicPlayer1.loop = true;
+      // musicPlayer.play();
+      musicPlayer1.fadeIn(musicFadeSpeed);
+    }
+  },
+
 
   makeStartTween:function(){
     // tween in all bunch of stuff
@@ -145,6 +186,8 @@ GameMenu.prototype = {
   },
 
   makeEndTween:function(){
+
+
     this.brownBGIn = game.add.tween(this.brownBG).to({alpha: 1}, this.tween.endSpeed, this.tween.methodLinear, false);
     this.brownBGIn.onComplete.add(this.startHomeScene, this);
   },

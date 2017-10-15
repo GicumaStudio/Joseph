@@ -115,12 +115,16 @@ BreakfastTransition.prototype = {
   },
 
   create: function () {
-    // if (musicPlayer.name !== "dangerous" && gameOptions.playMusic) {
-    //   musicPlayer.stop();
-    //   musicPlayer = game.add.audio('dangerous');
-    //   musicPlayer.loop = true;
-    //   musicPlayer.play();
-    // }
+    this.CheckMusicMood();
+  },
+
+  CheckMusicMood:function(){
+    if(moodPlayingLow){
+      game.add.tween(moodPlayerHigh).to({volume:1}, musicFadeSpeed, this.tween.method.linear, true);
+      game.add.tween(moodPlayerLow).to({volume:0}, musicFadeSpeed, this.tween.method.linear, true);
+      moodPlayingHigh = true;
+      moodPlayingLow = false;
+    }
   },
 
   makeStartTween:function(){

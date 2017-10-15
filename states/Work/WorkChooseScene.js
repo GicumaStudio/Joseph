@@ -129,12 +129,29 @@ WorkChooseScene.prototype = {
   },
 
   create: function () {
-    // if (musicPlayer.name !== "dangerous" && gameOptions.playMusic) {
-    //   musicPlayer.stop();
-    //   musicPlayer = game.add.audio('dangerous');
-    //   musicPlayer.loop = true;
-    //   musicPlayer.play();
-    // }
+    this.CheckMusic();
+  },
+
+  CheckMusic:function(){
+    
+    if(bgmPlaying){
+      bgmPlayer.fadeOut(musicFadeSpeed);
+      bgmPlaying = false;
+    } 
+
+    moodPlayingLow = false;
+    moodPlayingHigh = true;
+
+    moodPlayerLow = game.add.audio("bgm_mood_low");
+    moodPlayerHigh = game.add.audio("bgm_mood_high");
+    moodPlayerHigh.loop = true;
+    moodPlayerLow.loop = true;
+
+    moodPlayerLow.play();
+    moodPlayerLow.volume = 0;
+    moodPlayerHigh.fadeIn(musicFadeSpeed);
+
+
   },
 
   makeStartTween:function(){

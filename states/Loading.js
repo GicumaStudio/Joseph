@@ -218,8 +218,10 @@ Loading.prototype = {
 
   },
   loadBgm: function () {
-    // game.load.audio('home_demo', 'assets/bgm/Home_demo.wav');
-    // game.load.audio('start_demo', 'assets/bgm/start_demo.wav');
+    game.load.audio('bgm_menu','assets/bgm/start_demo.wav'); // use until finish selecting items
+    game.load.audio('bgm_mood_high','assets/bgm/R1High_demo.wav'); 
+    game.load.audio('bgm_mood_low','assets/bgm/R1Low_demo.wav'); 
+
     this.loadWorkBgm();
 
 
@@ -233,6 +235,10 @@ Loading.prototype = {
     game.load.audio('work_mrt', 'assets/bgm/work/MRT.wav');
     game.load.audio('work_breakfast', 'assets/bgm/work/Breakfast.wav');
     game.load.audio('work_fastfood', 'assets/bgm/work/Fastfood.wav');
+
+    game.load.audio('work_fin_low', 'assets/bgm/work/fin_demo.wav');
+    game.load.audio('work_fin_mid', 'assets/bgm/work/FinMid_Demo.wav');
+    game.load.audio('work_fin_high', 'assets/bgm/work/FinHigh_demo.wav');
 
   },
 

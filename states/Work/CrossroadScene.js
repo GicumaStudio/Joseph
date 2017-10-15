@@ -8,6 +8,7 @@ var CrossroadScene = function() {};
 
 CrossroadScene.prototype = {
   nextScene:'CrossroadTransition',
+  musicName:'work_crossroad',
   background_good:{
     size: 4,
     0:{
@@ -438,12 +439,48 @@ CrossroadScene.prototype = {
   create: function () {
     game.time.events.add(Phaser.Timer.SECOND * 1.5, this.initDialogue, this);
 
-    // if (musicPlayer.name !== "dangerous" && gameOptions.playMusic) {
-    //   musicPlayer.stop();
-    //   musicPlayer = game.add.audio('dangerous');
-    //   musicPlayer.loop = true;
-    //   musicPlayer.play();
-    // }
+    this.CheckMusic();
+  },
+
+  CheckMusic:function(){
+    if(musicPlaying1){
+      if (musicPlayer1.name !== this.musicName && gameOptions.playMusic) {
+        // musicPlayer.stop();
+        musicPlayer1.fadeOut(musicFadeSpeed);
+        musicPlaying1 = false;
+        musicPlaying2 = true;
+        musicPlayer2 = game.add.audio(this.musicName);
+        musicPlayer2.loop = true;
+        // musicPlayer.play();
+        musicPlayer2.fadeIn(musicFadeSpeed);
+      }
+    }else if(musicPlaying2){
+      if (musicPlayer2.name !== this.musicName && gameOptions.playMusic) {
+        // musicPlayer.stop();
+        musicPlayer2.fadeOut(musicFadeSpeed);
+        musicPlaying2 = false;
+        musicPlaying1 = true;
+        musicPlayer1 = game.add.audio(this.musicName);
+        musicPlayer1.loop = true;
+        // musicPlayer.play();
+        musicPlayer1.fadeIn(musicFadeSpeed);
+      }
+    }else{
+      musicPlaying1 = true;
+      musicPlayer1 = game.add.audio(this.musicName);
+      musicPlayer1.loop = true;
+      // musicPlayer.play();
+      musicPlayer1.fadeIn(musicFadeSpeed);
+    }
+  },
+
+  CheckMusicMood:function(){
+    if(this.mood.status == 'bad'){
+      game.add.tween(moodPlayerHigh).to({volume:0}, musicFadeSpeed, this.tween.method.linear, true);
+      game.add.tween(moodPlayerLow).to({volume:1}, musicFadeSpeed, this.tween.method.linear, true);
+      moodPlayingHigh = false;
+      moodPlayingLow = true;
+    }
   },
 
   // ******************
@@ -746,6 +783,7 @@ CrossroadScene.prototype = {
         // end
         this.changeTime();
         this.checkMood();
+        this.CheckMusicMood();
         this.situationFadeOut();
       }else{
         this.option.currentOption = this.events[this.choseEventNumber].number;
