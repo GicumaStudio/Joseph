@@ -382,10 +382,10 @@ BusScene.prototype = {
     }
 
     // anchor 0
-    this.status_box = game.make.sprite(0, 0 - this.status.distance, 'arcade_status');
-    this.sunny_icon = game.make.sprite(this.status.weather_icon.location.y, this.status.weather_icon.location.x - this.status.distance, 'arcade_sun_icon');
-    this.status_time_1015 = game.make.sprite(this.status.time.location.x, this.status.time.location.y - this.status.distance, 'arcade_time_1015');
-    this.status_time_1020 = game.make.sprite(this.status.time.location.x, this.status.time.location.y, 'arcade_time_1020');
+    this.status_box = game.make.sprite(0, 0 - this.status.distance, 'bus_status');
+    this.sunny_icon = game.make.sprite(this.status.weather_icon.location.y, this.status.weather_icon.location.x - this.status.distance, 'bus_gloomy_icon');
+    this.status_time_1015 = game.make.sprite(this.status.time.location.x, this.status.time.location.y - this.status.distance, 'bus_time_0850');
+    this.status_time_1020 = game.make.sprite(this.status.time.location.x, this.status.time.location.y, 'bus_time_0900');
 
     // anchor 0.5
     this.joseph_good = game.make.sprite(this.joseph.location.x - this.joseph.distance, this.joseph.location.y, this.joseph.sprite.good);

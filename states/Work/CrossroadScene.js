@@ -347,10 +347,10 @@ CrossroadScene.prototype = {
     }
 
     // anchor 0
-    this.status_box = game.make.sprite(0, 0 - this.status.distance, 'arcade_status');
-    this.sunny_icon = game.make.sprite(this.status.weather_icon.location.y, this.status.weather_icon.location.x - this.status.distance, 'arcade_sun_icon');
-    this.status_time_1015 = game.make.sprite(this.status.time.location.x, this.status.time.location.y - this.status.distance, 'arcade_time_1015');
-    this.status_time_1020 = game.make.sprite(this.status.time.location.x, this.status.time.location.y, 'arcade_time_1020');
+    this.status_box = game.make.sprite(0, 0 - this.status.distance, 'crossroad_status');
+    this.sunny_icon = game.make.sprite(this.status.weather_icon.location.y, this.status.weather_icon.location.x - this.status.distance, 'crossroad_sun_icon');
+    this.status_time_1015 = game.make.sprite(this.status.time.location.x, this.status.time.location.y - this.status.distance, 'crossroad_time_0800');
+    this.status_time_1020 = game.make.sprite(this.status.time.location.x, this.status.time.location.y, 'crossroad_time_0810');
 
     // anchor 0.5
     this.joseph_good = game.make.sprite(this.joseph.location.x - this.joseph.distance, this.joseph.location.y, 'arcade_joseph_good');
