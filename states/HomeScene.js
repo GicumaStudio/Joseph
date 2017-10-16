@@ -248,6 +248,7 @@ HomeScene.prototype = {
     if (this.clickCount > 5) {
       // start ending tweeen
       this.startEndingTween();
+      this.clickCount = 0;
     }
   },
 
@@ -310,17 +311,17 @@ HomeScene.prototype = {
 
     // item tweenings
     this.documentIn = game.add.tween(this.documentButton).to({ alpha: 1}, this.tween.speed, this.tween.methodLinear, false); 
-    this.documentOut = game.add.tween(this.documentButton).to({ alpha: 0}, this.tween.speed, this.tween.methodLinear, false); 
+    this.documentFadeOut = game.add.tween(this.documentButton).to({ alpha: 0}, this.tween.speed, this.tween.methodLinear, false); 
     this.saddleIn = game.add.tween(this.saddleButton).to({ alpha: 1}, this.tween.speed, this.tween.methodLinear, false); 
-    this.saddleOut = game.add.tween(this.saddleButton).to({ alpha: 0}, this.tween.speed, this.tween.methodLinear, false); 
+    this.saddleFadeOut = game.add.tween(this.saddleButton).to({ alpha: 0}, this.tween.speed, this.tween.methodLinear, false); 
     this.stickIn = game.add.tween(this.stickButton).to({ alpha: 1}, this.tween.speed, this.tween.methodLinear, false); 
-    this.stickOut = game.add.tween(this.stickButton).to({ alpha: 0}, this.tween.speed, this.tween.methodLinear, false); 
+    this.stickFadeOut = game.add.tween(this.stickButton).to({ alpha: 0}, this.tween.speed, this.tween.methodLinear, false); 
     this.hatIn = game.add.tween(this.hatButton).to({ alpha: 1}, this.tween.speed, this.tween.methodLinear, false); 
-    this.hatOut = game.add.tween(this.hatButton).to({ alpha: 0}, this.tween.speed, this.tween.methodLinear, false); 
+    this.hatFadeOut = game.add.tween(this.hatButton).to({ alpha: 0}, this.tween.speed, this.tween.methodLinear, false); 
     this.raincoatIn = game.add.tween(this.raincoatButton).to({ alpha: 1}, this.tween.speed, this.tween.methodLinear, false); 
-    this.raincoatOut = game.add.tween(this.raincoatButton).to({ alpha: 0}, this.tween.speed, this.tween.methodLinear, false); 
+    this.raincoatFadeOut = game.add.tween(this.raincoatButton).to({ alpha: 0}, this.tween.speed, this.tween.methodLinear, false); 
     this.umbrellaIn = game.add.tween(this.umbrellaButton).to({ alpha: 1}, this.tween.speed, this.tween.methodLinear, false); 
-    this.umbrellaOut = game.add.tween(this.umbrellaButton).to({ alpha: 0}, this.tween.speed, this.tween.methodLinear, false); 
+    this.umbrellaFadeOut = game.add.tween(this.umbrellaButton).to({ alpha: 0}, this.tween.speed, this.tween.methodLinear, false); 
 
     // joseph needs movement
     this.leftJosephIn = game.add.tween(this.homeJosephLeft).to({alpha: 1, x:this.joseph.left.x}, this.joseph.speed, this.tween.methodExp, false, this.joseph.delay); 
@@ -535,6 +536,7 @@ HomeScene.prototype = {
 
     //delay and switch state
     setTimeout(function () {
+      // game.state.start("DogSchoolScene");
       game.state.start("WorkChooseScene");
     }, this.switchStateDelay); 
   },
@@ -572,7 +574,7 @@ HomeScene.prototype = {
     // disable button, fade out button and box 
     this.disableButton(this.documentButton);
     this.docGroupOut.start();
-    this.documentOut.start();
+    this.documentFadeOut.start();
     // this.docAnnoOut.start();
     this.addClickCount();
   },
@@ -588,7 +590,7 @@ HomeScene.prototype = {
   saddleOnClick: function (){
     this.disableButton(this.saddleButton);
     this.saddleGroupOut.start();
-    this.saddleOut.start();
+    this.saddleFadeOut.start();
     // this.saddleAnnoOut.start();
     this.addClickCount();
   },
@@ -604,7 +606,7 @@ HomeScene.prototype = {
   stickOnClick: function (){
     this.disableButton(this.stickButton);
     this.stickGroupOut.start();
-    this.stickOut.start();
+    this.stickFadeOut.start();
     // this.stickAnnoOut.start();
     this.addClickCount();
   }, 
@@ -620,7 +622,7 @@ HomeScene.prototype = {
   hatOnClick: function (){
     this.disableButton(this.hatButton);
     this.hatGroupOut.start();
-    this.hatOut.start();
+    this.hatFadeOut.start();
     // this.hatAnnoOut.start();
     this.addClickCount();
   }, 
@@ -636,7 +638,7 @@ HomeScene.prototype = {
   raincoatOnClick: function (){
     this.disableButton(this.raincoatButton);
     this.raincoatGroupOut.start();
-    this.raincoatOut.start();
+    this.raincoatFadeOut.start();
     // this.raincoatAnnoOut.start();
     this.addClickCount();
   }, 
@@ -652,7 +654,7 @@ HomeScene.prototype = {
   umbrellaOnClick: function (){
     this.disableButton(this.umbrellaButton);
     this.umbrellaGroupOut.start();
-    this.umbrellaOut.start();
+    this.umbrellaFadeOut.start();
     // this.umbrellaAnnoOut.start();
     this.addClickCount();
   }, 

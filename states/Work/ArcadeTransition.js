@@ -88,6 +88,7 @@ ArcadeTransition.prototype = {
 
     //txts
     this.topLine = game.make.text(this.topTxt.x, this.topTxt.y, this.topTxt.line[this.topTxt.ind], {font: "50px SansCJK", fill: 'white', align:'center'});
+    // this.topLine.visible = true;
     this.topLine.lineSpacing = this.topTxt.lineSpacing;
     this.questionLine = game.make.text(this.question.x, this.question.y - this.question.distance, this.question.line, {font: "50px SansCJK", fill: 'white'});;
 
@@ -199,6 +200,7 @@ ArcadeTransition.prototype = {
       this.topLine.text = this.topTxt.line[this.topTxt.ind];
     }
     else{
+      this.topTxt.ind = 0;
       this.topLine.visible = false;
       this.stopLoopTweens();
       // start ending tween, enable buttons
@@ -260,10 +262,12 @@ ArcadeTransition.prototype = {
   },
 
   startScene1:function(){ // left
-    game.state.start(this.buttons[1].target_scene);
+    // game.state.start(this.buttons[1].target_scene);
+    game.state.start("DogSchoolScene");
   },
   startScene2:function(){ // right
-    game.state.start(this.buttons[2].target_scene); 
+    // game.state.start(this.buttons[2].target_scene); 
+    game.state.start("DogSchoolScene");
   },
 
   activateOptions:function(){

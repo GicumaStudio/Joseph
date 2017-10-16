@@ -210,6 +210,7 @@ WorkChooseScene.prototype = {
       this.topLine.text = this.topTxt.line[this.topTxt.ind];
     }
     else{
+      this.topTxt.ind = 0;
       this.topLine.visible = false;
       this.stopLoopTweens();
       // start ending tween, enable buttons

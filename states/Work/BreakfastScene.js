@@ -921,6 +921,7 @@ BreakfastScene.prototype = {
     this.endingBrownBGIn.start();
   },
   switchScene:function(){
+    this.dialogue.currentTxtInd = 0;
     game.state.start(this.nextScene);
   },
 

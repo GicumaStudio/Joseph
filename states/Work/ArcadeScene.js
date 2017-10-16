@@ -739,6 +739,7 @@ ArcadeScene.prototype = {
         this.checkMood();
         this.CheckMusicMood();
         this.situationFadeOut();
+        // reset current txt ind?
       }else{
         this.option.currentOption = this.events[this.choseEventNumber].number;
         this.startSituationOption();
@@ -918,7 +919,9 @@ ArcadeScene.prototype = {
     this.disableAllButtons();
     this.endingBrownBGIn.start();
   },
+
   switchScene:function(){
+    this.dialogue.currentTxtInd = 0;
     game.state.start(this.nextScene);
   },
 
