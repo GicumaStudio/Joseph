@@ -402,9 +402,9 @@ MrtStationScene.prototype = {
         musicPlaying1 = false;
         musicPlaying2 = true;
         musicPlayer2 = game.add.audio(this.musicName);
-        musicPlayer2.loop = true;
+        musicPlayer2.loopFull();
         // musicPlayer.play();
-        musicPlayer2.fadeIn(musicFadeSpeed);
+        musicPlayer2.fadeIn(musicFadeSpeed, true);
       }
     }else if(musicPlaying2){
       if (musicPlayer2.name !== this.musicName && gameOptions.playMusic) {
@@ -413,16 +413,16 @@ MrtStationScene.prototype = {
         musicPlaying2 = false;
         musicPlaying1 = true;
         musicPlayer1 = game.add.audio(this.musicName);
-        musicPlayer1.loop = true;
+        musicPlayer1.loopFull();
         // musicPlayer.play();
-        musicPlayer1.fadeIn(musicFadeSpeed);
+        musicPlayer1.fadeIn(musicFadeSpeed, true);
       }
     }else{
       musicPlaying1 = true;
       musicPlayer1 = game.add.audio(this.musicName);
-      musicPlayer1.loop = true;
+      musicPlayer1.loopFull();
       // musicPlayer.play();
-      musicPlayer1.fadeIn(musicFadeSpeed);
+      musicPlayer1.fadeIn(musicFadeSpeed, true);
     }
   },
   CheckMusicMood:function(){

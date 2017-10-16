@@ -144,14 +144,12 @@ WorkChooseScene.prototype = {
 
     moodPlayerLow = game.add.audio("bgm_mood_low");
     moodPlayerHigh = game.add.audio("bgm_mood_high");
-    moodPlayerHigh.loop = true;
-    moodPlayerLow.loop = true;
+    moodPlayerHigh.loopFull();
+    moodPlayerLow.loopFull();
 
     moodPlayerLow.play();
     moodPlayerLow.volume = 0;
-    moodPlayerHigh.fadeIn(musicFadeSpeed);
-
-
+    moodPlayerHigh.fadeIn(musicFadeSpeed, true);
   },
 
   makeStartTween:function(){
