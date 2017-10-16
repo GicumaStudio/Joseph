@@ -53,10 +53,10 @@ MrtScene.prototype = {
   status:{
     distance: 25,
     weather_icon:{
-      location:{x: 41,y: 24}
+      location:{x: -410,y: -240}
     },
     time:{
-      location:{x: 103,y: 25}
+      location:{x: 241.5,y: 36.5}
     }, 
   },
   nextButtonLocation:{x: 1702,y: 977},
@@ -314,7 +314,7 @@ MrtScene.prototype = {
 
     // set anchor and alpha
     utils.centerGameObjects([this.joseph_good, this.joseph_bad, this.next_button, this.dialogue_paw, this.situation_grey_back,
-      this.bad_mood, this.choseEvent.sprite]);
+      this.bad_mood, this.choseEvent.sprite, this.status_time_1015, this.status_time_1020]);
     utils.zeroAlpha([this.status_box, this.status_time_1015, this.status_time_1020, this.sunny_icon, this.bad_mood,
       this.joseph_good, this.joseph_bad, this.dialogue_button, this.dialogue_txt, this.dialogue_paw, this.next_button, this.option_box,
       this.situation_grey_back, this.choseEvent.sprite, this.grey_cover, this.option_txt_Q, this.option_txt_A, this.option_txt_B, this.endingBrownBG]);

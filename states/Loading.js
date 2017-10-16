@@ -444,8 +444,8 @@ Loading.prototype = {
     // top left
     game.load.image('arcade_status', 'assets/images/arcade/status.png');
     game.load.image('arcade_sun_icon', 'assets/images/arcade/sunny.png');
-    game.load.image('arcade_time_0800', 'assets/images/arcade/1015.png'); // has the localtion in it
-    game.load.image('arcade_time_0810', 'assets/images/arcade/1020.png');
+    game.load.image('arcade_time_0800', 'assets/images/arcade/storefronts_1.png'); // has the localtion in it
+    game.load.image('arcade_time_0810', 'assets/images/arcade/storefronts_2.png');
 
     // Crossroad Scene
     game.load.image('crossroad_bg_good', 'assets/images/work/crossroad/bgs/crossroad_01.png');
@@ -456,10 +456,11 @@ Loading.prototype = {
     game.load.image('crossroad_bg_bad_0', 'assets/images/work/crossroad/bgs/crossroad_bad_02.png');
     game.load.image('crossroad_bg_bad_1', 'assets/images/work/crossroad/bgs/crossroad_bad_03.png');
     game.load.image('crossroad_bg_bad_2', 'assets/images/work/crossroad/bgs/crossroad_bad_04.png');
+    // top left
     game.load.image('crossroad_status', 'assets/images/arcade/status.png');
     game.load.image('crossroad_sun_icon', 'assets/images/arcade/sunny.png');
-    game.load.image('crossroad_time_0800', 'assets/images/arcade/1015.png'); // has the localtion in it
-    game.load.image('crossroad_time_0810', 'assets/images/arcade/1020.png');
+    game.load.image('crossroad_time_0800', 'assets/images/work/crossroad/crossroad_1.png'); // has the localtion in it
+    game.load.image('crossroad_time_0810', 'assets/images/work/crossroad/crossroad_2.png');
 
     // Mrt Station
     game.load.image('mrtstation_bg_good', 'assets/images/work/mrt_station/bgs/MRT_station_ord.png');
@@ -470,8 +471,8 @@ Loading.prototype = {
     // top left
     game.load.image('mrtstation_status', 'assets/images/arcade/status.png');
     game.load.image('mrtstation_sun_icon', 'assets/images/arcade/sunny.png');
-    game.load.image('mrtstation_time_0830', 'assets/images/arcade/1015.png'); // has the localtion in it
-    game.load.image('mrtstation_time_0845', 'assets/images/arcade/1020.png');
+    game.load.image('mrtstation_time_0830', 'assets/images/work/mrt_station/MRT_station_1.png'); // has the localtion in it
+    game.load.image('mrtstation_time_0845', 'assets/images/work/mrt_station/MRT_station_2.png');
 
     // Bus Station
     game.load.image('busstation_bg_good', 'assets/images/work/bus_station/bgs/bus_station_ord.png');
@@ -484,8 +485,8 @@ Loading.prototype = {
     // top left
     game.load.image('busstation_status', 'assets/images/arcade/status.png');
     game.load.image('busstation_sun_icon', 'assets/images/arcade/sunny.png');
-    game.load.image('busstation_time_0830', 'assets/images/arcade/1015.png'); // has the localtion in it
-    game.load.image('busstation_time_0845', 'assets/images/arcade/1020.png');
+    game.load.image('busstation_time_0830', 'assets/images/work/bus_station/bus_station_1.png'); // has the localtion in it
+    game.load.image('busstation_time_0845', 'assets/images/work/bus_station/bus_station_2.png');
 
     // Bus 
     game.load.image('bus_joe_good', 'assets/images/work/bus/bgs/bus_good_Joe.png');
@@ -500,8 +501,8 @@ Loading.prototype = {
     // top left
     game.load.image('bus_status', 'assets/images/arcade/status.png');
     game.load.image('bus_gloomy_icon', 'assets/images/arcade/sunny.png');
-    game.load.image('bus_time_0850', 'assets/images/arcade/1015.png'); // has the localtion in it
-    game.load.image('bus_time_0900', 'assets/images/arcade/1020.png');
+    game.load.image('bus_time_0850', 'assets/images/work/bus/bus_1.png'); // has the localtion in it
+    game.load.image('bus_time_0900', 'assets/images/work/bus/bus_2.png');
 
     // MRT
     game.load.image('mrt_good_bg', 'assets/images/work/mrt/bgs/MRT.png');
@@ -510,8 +511,8 @@ Loading.prototype = {
     // top left
     game.load.image('mrt_status', 'assets/images/arcade/status.png');
     game.load.image('mrt_gloomy_icon', 'assets/images/arcade/sunny.png');
-    game.load.image('mrt_time_0850', 'assets/images/arcade/1015.png'); // has the localtion in it
-    game.load.image('mrt_time_0900', 'assets/images/arcade/1020.png');
+    game.load.image('mrt_time_0850', 'assets/images/work/mrt/MRT_1.png'); // has the localtion in it
+    game.load.image('mrt_time_0900', 'assets/images/work/mrt/MRT_2.png');
 
     // Breakfast
     game.load.image('breakfast_good_bg', 'assets/images/work/breakfast/bgs/breakfast_good.png');
@@ -520,8 +521,8 @@ Loading.prototype = {
     // top left
     game.load.image('breakfast_status', 'assets/images/arcade/status.png');
     game.load.image('breakfast_gloomy_icon', 'assets/images/arcade/sunny.png');
-    game.load.image('breakfast_time_0910', 'assets/images/arcade/1015.png'); // has the localtion in it
-    game.load.image('breakfast_time_0930', 'assets/images/arcade/1020.png');
+    game.load.image('breakfast_time_0910', 'assets/images/work/breakfast/breakfast_1.png'); // has the localtion in it
+    game.load.image('breakfast_time_0930', 'assets/images/work/breakfast/breakfast_2.png');
 
     // Fastfood
     game.load.image('fastfood_good_bg', 'assets/images/work/fast_food/bgs/fast_food.png');
@@ -530,8 +531,8 @@ Loading.prototype = {
     // top left
     game.load.image('fastfood_status', 'assets/images/arcade/status.png');
     game.load.image('fastfood_gloomy_icon', 'assets/images/arcade/sunny.png');
-    game.load.image('fastfood_time_0910', 'assets/images/arcade/1015.png'); // has the localtion in it
-    game.load.image('fastfood_time_0930', 'assets/images/arcade/1020.png');
+    game.load.image('fastfood_time_0910', 'assets/images/work/fast_food/fast_food_1.png'); // has the localtion in it
+    game.load.image('fastfood_time_0930', 'assets/images/work/fast_food/fast_food_2.png');
 
     // Dog School
     game.load.image('dogschool_bg_bright', 'assets/images/work/dog_school/UI_END_light.png');
