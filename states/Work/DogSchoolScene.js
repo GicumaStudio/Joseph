@@ -678,7 +678,8 @@ DogSchoolScene.prototype = {
     total_score = 0;
 
     bgmPlaying = false;
-    bgmPlayer.fadeOut(musicFadeSpeed);
+    bgmPlayer.stop();
+    // bgmPlayer.fadeOut(musicFadeSpeed);
   },
 
   checkStartingTxtStyleInd:function(i_id){
