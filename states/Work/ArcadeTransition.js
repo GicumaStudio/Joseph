@@ -262,12 +262,12 @@ ArcadeTransition.prototype = {
   },
 
   startScene1:function(){ // left
-    // game.state.start(this.buttons[1].target_scene);
-    game.state.start("DogSchoolScene");
+    game.state.start(this.buttons[1].target_scene);
+    // game.state.start("DogSchoolScene");
   },
   startScene2:function(){ // right
-    // game.state.start(this.buttons[2].target_scene); 
-    game.state.start("DogSchoolScene");
+    game.state.start(this.buttons[2].target_scene); 
+    // game.state.start("DogSchoolScene");
   },
 
   activateOptions:function(){

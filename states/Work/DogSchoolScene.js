@@ -10,8 +10,8 @@ DogSchoolScene.prototype = {
   score_ind: null, // 1, 2, 3  for 1, 2, 3 stars
   ind_to_friendliness:{1: 'unfriendly', 2: 'normal', 3:'friendly'},
   score_level:[4, 8],  //  smaller than 4, smaller than 8?  
-  startDelay:200,
-  // startDelay:2000,
+  // startDelay:200,
+  startDelay:2000,
   bg:{
     light:{
       name: 'dogschool_bg_bright',
@@ -20,8 +20,8 @@ DogSchoolScene.prototype = {
     },
     blur:{
       name: 'dogschool_bg_blur',
-      tweenSpeed: 250,
-      // tweenSpeed: 2500,
+      // tweenSpeed: 250,
+      tweenSpeed: 2500,
       position:{x:0,y:0},
       sprite: null,
       tweenIn: null
@@ -71,12 +71,12 @@ DogSchoolScene.prototype = {
   startingTxtInd: 0,
   startingTxtLength: 0,
   startingTxtList:{
-    // tweenSpeed: 1000,
-    // tweenDelay: 1000,
-    // tweenOutDelay: 2,
-    tweenSpeed: 100,
-    tweenDelay: 100,
-    tweenOutDelay: 0.1,
+    tweenSpeed: 1000,
+    tweenDelay: 1000,
+    tweenOutDelay: 2,
+    // tweenSpeed: 100,
+    // tweenDelay: 100,
+    // tweenOutDelay: 0.1,
     positions:{
       2:[
           {x: 960, y: 540 - 40},
