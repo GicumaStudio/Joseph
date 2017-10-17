@@ -9,13 +9,14 @@ body{
     background-color:#211A1C;    
 }
 #VerticalBox{
-    width:1920px;
+    /*width:1920px;*/
+    width:100%;
     height:100%;
     margin:0 auto;
 }
 #Header{
     width:100%;
-    height:60px;
+    height:50px;
 }
 #FBIcon{
     width:27px;

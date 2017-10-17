@@ -34,17 +34,25 @@ thirdLineOffset = 30;
 
 Main.prototype = {
     preload:function(){
-        // set to show_all since 1920 * 1080 is too large
-        game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-        game.scale.windowConstraints.bottom = "visual";
-        game.scale.setShowAll();
-        game.scale.pageAlignHorizontally = true;
-        game.scale.pageAlignVertically = true;
-        window.addEventListener('resize', function () { 
+        // if(game.device.windows || game.device.macOS){
+            console.log("desktop");
+            // set to show_all since 1920 * 1080 is too large
+            game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+            game.scale.windowConstraints.bottom = "visual";
+            game.scale.setShowAll();
+            game.scale.pageAlignHorizontally = true;
+            game.scale.pageAlignVertically = true;
+            window.addEventListener('resize', function () { 
+                game.scale.refresh();
+            });
             game.scale.refresh();
-        });
-        game.scale.refresh();
-
+        // }else if(game.device.android || game.device.iOS){
+        //     console.log("Mobile");
+        //     game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+        //     game.scale.startFullScreen();
+        //     game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        //     game.scale.refresh();
+        // }
         //
         this.loadImgs();
         this.loadScripts(); 
