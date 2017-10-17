@@ -34,7 +34,7 @@ thirdLineOffset = 30;
 
 Main.prototype = {
     preload:function(){
-        // if(game.device.windows || game.device.macOS){
+        if(game.device.windows || game.device.macOS){
             console.log("desktop");
             // set to show_all since 1920 * 1080 is too large
             game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
@@ -46,13 +46,22 @@ Main.prototype = {
                 game.scale.refresh();
             });
             game.scale.refresh();
-        // }else if(game.device.android || game.device.iOS){
-        //     console.log("Mobile");
-        //     game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
-        //     game.scale.startFullScreen();
-        //     game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-        //     game.scale.refresh();
-        // }
+        }else if(game.device.android || game.device.iOS){
+            console.log("Mobile");
+            // game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+            // game.scale.startFullScreen();
+            // game.scale.scaleMode = Phaser.ScaleManager.RESIZE;
+            console.log(window.innerWidth);
+            var ratio = window.innerWidth/1920;
+            game.scale.setupScale( 1920 * ratio, 1080 * ratio,0,0);
+            window.addEventListener('orientationchange', function () { 
+                console.log(window.innerWidth);
+                var ratio = window.innerWidth/1920;
+                game.scale.setupScale( 1920 * ratio, 1080 * ratio,0,0);
+                game.scale.refresh();
+            });
+            game.scale.refresh();
+        }
         //
         this.loadImgs();
         this.loadScripts(); 
