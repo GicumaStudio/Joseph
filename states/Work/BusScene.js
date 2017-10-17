@@ -511,11 +511,16 @@ BusScene.prototype = {
   },
 
   CheckMusicMood:function(){
-    if(this.mood.status == 'bad'){
+    if(moodPlayingHigh && this.mood.status == 'bad'){
       game.add.tween(moodPlayerHigh).to({volume:0}, musicFadeSpeed, this.tween.method.linear, true);
       game.add.tween(moodPlayerLow).to({volume:1}, musicFadeSpeed, this.tween.method.linear, true);
       moodPlayingHigh = false;
       moodPlayingLow = true;
+    }else if(moodPlayingLow && !(this.mood.status == 'bad')){
+      game.add.tween(moodPlayerHigh).to({volume:1}, musicFadeSpeed, this.tween.method.linear, true);
+      game.add.tween(moodPlayerLow).to({volume:2}, musicFadeSpeed, this.tween.method.linear, true);
+      moodPlayingHigh = true;
+      moodPlayingLow = false;
     }
   },
   // ******************
