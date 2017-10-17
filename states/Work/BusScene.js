@@ -827,6 +827,7 @@ BusScene.prototype = {
       }
     } else{
       // fade out ==> change txt ==> fade in
+      this.pawOutBlink.stop();
       this.pawOut.start();
       this.dialogueTxtOut.start();
     }
@@ -1029,6 +1030,9 @@ BusScene.prototype = {
 
   activateNextButton:function(){
     this.nextButtonIn.start();
+    this.pawOutBlink.stop();
+    this.pawOut.stop();
+    this.pawOutOnly.start();
     this.enableButton(this.next_button);
   },
 
