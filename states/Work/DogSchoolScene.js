@@ -630,7 +630,7 @@ DogSchoolScene.prototype = {
   // ******************
   planOnClick:function(){
     // TODO
-    window.open('https://www.zeczec.com/projects/joseph-guidedog');
+    window.open('https://www.zeczec.com/projects/guidedog-joseph');
 
   },
   shareOnClick:function(){
