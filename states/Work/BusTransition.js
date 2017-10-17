@@ -128,7 +128,7 @@ BusTransition.prototype = {
   },
 
   create: function () {
-    this.CheckMusicMood();
+    // this.CheckMusicMood();
   },
 
   CheckMusicMood:function(){

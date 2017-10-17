@@ -895,6 +895,7 @@ MrtScene.prototype = {
   },
   switchScene:function(){
     this.dialogue.currentTxtInd = 0;
+    this.option.currentOption = null;
     game.state.start(this.nextScene);
   },
 
