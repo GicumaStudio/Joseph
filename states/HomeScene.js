@@ -195,6 +195,9 @@ HomeScene.prototype = {
   },
 
   preload: function () {
+    // load here?
+    this.LoadRestAssets(); 
+
     // start Scene
     utils.addExistingMultiple([this.brownBG, this.startTxt1, this.startTxt2]);
 
@@ -227,6 +230,61 @@ HomeScene.prototype = {
 
   create: function () {
     this.CheckMusic();
+  },
+
+  LoadRestAssets:function(){
+    this.loadWorkEventIamges();
+  },
+
+  loadWorkEventIamges:function(){
+    // arcade
+    game.load.image('event_04', 'assets/images/events/work/arcade/04_step_drop.png');
+    game.load.image('event_05', 'assets/images/events/work/arcade/05_shop_stuff.png');
+    game.load.image('event_06', 'assets/images/events/work/arcade/06_low_sign.png');
+    game.load.image('event_07', 'assets/images/events/work/arcade/07_messy_motors.png');
+    game.load.image('event_08', 'assets/images/events/work/arcade/08_sidewalk_bike.png');
+    game.load.image('event_67', 'assets/images/events/work/arcade/67_messy_garbage.png');
+    game.load.image('event_68', 'assets/images/events/work/arcade/68_broken_slope.png');
+    game.load.image('event_69', 'assets/images/events/work/arcade/69_truck_back.png');
+
+    // crossroad
+    game.load.image('event_01', 'assets/images/events/work/crossroad/01_dog_stop.png');
+    game.load.image('event_02', 'assets/images/events/work/crossroad/02_loud_noise.png');
+    game.load.image('event_03', 'assets/images/events/work/crossroad/03_motor_turn.png');
+
+    // bus_station
+    game.load.image('event_16', 'assets/images/events/work/bus_station/16_check_time.png');
+    game.load.image('event_17', 'assets/images/events/work/bus_station/17_check_bus.png');
+    game.load.image('event_18', 'assets/images/events/work/bus_station/18_bus_drove_away.png');
+
+    // bus
+    game.load.image('event_20', 'assets/images/events/work/bus/20_find_seat.png');
+    game.load.image('event_21', 'assets/images/events/work/bus/21_too_stink.png');
+    game.load.image('event_22', 'assets/images/events/work/bus/22_specific_location.png');
+    game.load.image('event_23', 'assets/images/events/work/bus/23_dog_touched.png');
+    game.load.image('event_24', 'assets/images/events/work/bus/24_if_bite.png');
+    game.load.image('event_25', 'assets/images/events/work/bus/25_good_driver.png');
+
+    //mrt_station
+    game.load.image('event_09', 'assets/images/events/work/mrt_station/09_crowded_gate.png');
+    game.load.image('event_10', 'assets/images/events/work/mrt_station/10_elevator_down.png');
+    game.load.image('event_11', 'assets/images/events/work/mrt_station/11_staff_help.png');
+    game.load.image('event_12', 'assets/images/events/work/mrt_station/12_people_pet_dog.png');
+    
+    // mrt
+    game.load.image('event_13', 'assets/images/events/work/mrt/13_mrt_seats.png');
+    game.load.image('event_14', 'assets/images/events/work/mrt/14_tail_stepped.png');
+    game.load.image('event_15', 'assets/images/events/work/mrt/15_scared_kid.png');
+
+    // fast_food
+    game.load.image('event_26', 'assets/images/events/work/fast_food/26_kid_feed.png');
+    game.load.image('event_27', 'assets/images/events/work/fast_food/27_guest_talk.png');
+    game.load.image('event_28', 'assets/images/events/work/fast_food/28_clerk_help.png');
+
+    // breakfast
+    game.load.image('event_29', 'assets/images/events/work/breakfast/29_door_bike_motor.png');
+    game.load.image('event_30', 'assets/images/events/work/breakfast/30_store_take_arcade.png');
+    game.load.image('event_31', 'assets/images/events/work/breakfast/31_guest_feed_dog.png');
   },
 
   CheckMusic:function(){

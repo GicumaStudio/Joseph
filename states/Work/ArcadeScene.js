@@ -6,6 +6,7 @@ var ArcadeScene = function() {};
 // ***********
 
 ArcadeScene.prototype = {
+  // nextScene:'DogSchoolScene',
   nextScene:'ArcadeTransition',
   musicName:'work_arcade',
   background:{

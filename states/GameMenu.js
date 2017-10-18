@@ -74,6 +74,9 @@ GameMenu.prototype = {
   },
 
   preload: function () {
+    // load here?
+    this.LoadRestAssets(); 
+
     game.add.existing(this.menuBG);
     game.add.existing(this.bus);
     game.add.existing(this.menuTrafficLight);
@@ -103,17 +106,65 @@ GameMenu.prototype = {
     this.makeEndTween();
   },
 
+  create: function () {
+    // music use sidewalk also,
+    this.CheckMusic();
+
+  },
+
+  LoadRestAssets:function(){
+    console.log("Loading Rest!");
+    this.LoadImages();
+  },
+
+  LoadImages:function(){
+    this.loadEndingUIImages();
+  },
+
+  loadEndingUIImages:function(){
+    // 3 score types of joseph
+    game.load.image('end_joe_low', 'assets/images/score_prompt/joseph/END_low.png');
+    game.load.image('end_joe_mid', 'assets/images/score_prompt/joseph/END_mid.png');
+    game.load.image('end_joe_high', 'assets/images/score_prompt/joseph/END_high.png');
+
+    // UI Stuff 
+    game.load.image('end_paper_back', 'assets/images/score_prompt/UI_END_back.png');
+    game.load.image('end_star_unfilled', 'assets/images/score_prompt/UI_END_star_unfilled.png');
+    game.load.image('end_star_filled', 'assets/images/score_prompt/UI_END_star_filled.png');
+    game.load.image('end_lineA', 'assets/images/score_prompt/UI_END_line_A.png');
+    game.load.image('end_lineB', 'assets/images/score_prompt/UI_END_line_B.png');
+    game.load.image('end_lineC', 'assets/images/score_prompt/UI_END_line_C.png');
+    game.load.image('end_top_txt_back', 'assets/images/score_prompt/UI_END_Top_Color.png');
+    game.load.image('end_top_txt', 'assets/images/score_prompt/UI_END_Top_sentence.png');
+    game.load.image('end_friendly_city_txt', 'assets/images/score_prompt/UI_END_Friendly-City_sentence.png');
+    game.load.image('end_city_description_back', 'assets/images/score_prompt/UI_END_City_Color.png');
+
+    game.load.image('end_city_txt_bad', 'assets/images/score_prompt/UI_END_City_sentence_Bad.png');
+    game.load.image('end_city_title_bad', 'assets/images/score_prompt/UI_END_City_Title_Bad.png');
+    game.load.image('end_city_txt_normal', 'assets/images/score_prompt/UI_END_City_sentence_Normal.png');
+    game.load.image('end_city_title_normal', 'assets/images/score_prompt/UI_END_City_Title_Normal.png');
+    game.load.image('end_city_txt_good', 'assets/images/score_prompt/UI_END_City_sentence_Good.png');
+    game.load.image('end_city_title_good', 'assets/images/score_prompt/UI_END_City_Title_Good.png');
+
+    // score UI buttons
+    game.load.image('end_button_plan', 'assets/images/score_prompt/buttons/UI_END_Plan-page.png');
+    game.load.image('end_button_replay', 'assets/images/score_prompt/buttons/UI_END_Replay.png');
+    game.load.image('end_button_share', 'assets/images/score_prompt/buttons/UI_END_Share.png');
+    game.load.spritesheet('end_button_back', 'assets/images/score_prompt/buttons/UI_END_Button.png', 385, 122);
+    game.load.spritesheet('end_button_gicuma', 'assets/images/score_prompt/buttons/UI_END_Gicuma.png', 75, 62.5);
+    game.load.spritesheet('end_button_fb', 'assets/images/score_prompt/buttons/UI_END_facebook.png', 50, 62);
+  },
+
+  LoadSprites:function(){
+
+  },
+
   actionOnClick: function (){
     //disable button
     this.disableButton();
 
     // fade in BG, txts
     this.brownBGIn.start();
-  },
-
-  create: function () {
-    // music use sidewalk also,
-    this.CheckMusic();
   },
 
   CheckMusic:function(){
@@ -194,6 +245,7 @@ GameMenu.prototype = {
 
   startHomeScene:function(){
     game.state.start("HomeScene");
+    // game.state.start("HomeScene");
   },
 
   enableButton:function(){

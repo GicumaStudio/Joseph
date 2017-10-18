@@ -139,8 +139,8 @@ Loading.prototype = {
 
   loadEverything: function(){
     this.loadScripts();
-    this.loadImages();
     this.loadBgm();
+    this.loadImages();
     this.loadSprites();
   },
 
@@ -379,43 +379,43 @@ Loading.prototype = {
     game.load.image('home_hometown_lock', 'assets/images/home/hometown_lock.png');
 
     this.loadWorkImages();
-    this.loadEventImages();
-    this.loadEndingUIImages();
+    // this.loadEventImages();
+    // this.loadEndingUIImages();
   },
 
-  loadEndingUIImages:function(){
-    // 3 score types of joseph
-    game.load.image('end_joe_low', 'assets/images/score_prompt/joseph/END_low.png');
-    game.load.image('end_joe_mid', 'assets/images/score_prompt/joseph/END_mid.png');
-    game.load.image('end_joe_high', 'assets/images/score_prompt/joseph/END_high.png');
+  // loadEndingUIImages:function(){
+  //   // 3 score types of joseph
+  //   game.load.image('end_joe_low', 'assets/images/score_prompt/joseph/END_low.png');
+  //   game.load.image('end_joe_mid', 'assets/images/score_prompt/joseph/END_mid.png');
+  //   game.load.image('end_joe_high', 'assets/images/score_prompt/joseph/END_high.png');
 
-    // UI Stuff 
-    game.load.image('end_paper_back', 'assets/images/score_prompt/UI_END_back.png');
-    game.load.image('end_star_unfilled', 'assets/images/score_prompt/UI_END_star_unfilled.png');
-    game.load.image('end_star_filled', 'assets/images/score_prompt/UI_END_star_filled.png');
-    game.load.image('end_lineA', 'assets/images/score_prompt/UI_END_line_A.png');
-    game.load.image('end_lineB', 'assets/images/score_prompt/UI_END_line_B.png');
-    game.load.image('end_lineC', 'assets/images/score_prompt/UI_END_line_C.png');
-    game.load.image('end_top_txt_back', 'assets/images/score_prompt/UI_END_Top_Color.png');
-    game.load.image('end_top_txt', 'assets/images/score_prompt/UI_END_Top_sentence.png');
-    game.load.image('end_friendly_city_txt', 'assets/images/score_prompt/UI_END_Friendly-City_sentence.png');
-    game.load.image('end_city_description_back', 'assets/images/score_prompt/UI_END_City_Color.png');
+  //   // UI Stuff 
+  //   game.load.image('end_paper_back', 'assets/images/score_prompt/UI_END_back.png');
+  //   game.load.image('end_star_unfilled', 'assets/images/score_prompt/UI_END_star_unfilled.png');
+  //   game.load.image('end_star_filled', 'assets/images/score_prompt/UI_END_star_filled.png');
+  //   game.load.image('end_lineA', 'assets/images/score_prompt/UI_END_line_A.png');
+  //   game.load.image('end_lineB', 'assets/images/score_prompt/UI_END_line_B.png');
+  //   game.load.image('end_lineC', 'assets/images/score_prompt/UI_END_line_C.png');
+  //   game.load.image('end_top_txt_back', 'assets/images/score_prompt/UI_END_Top_Color.png');
+  //   game.load.image('end_top_txt', 'assets/images/score_prompt/UI_END_Top_sentence.png');
+  //   game.load.image('end_friendly_city_txt', 'assets/images/score_prompt/UI_END_Friendly-City_sentence.png');
+  //   game.load.image('end_city_description_back', 'assets/images/score_prompt/UI_END_City_Color.png');
 
-    game.load.image('end_city_txt_bad', 'assets/images/score_prompt/UI_END_City_sentence_Bad.png');
-    game.load.image('end_city_title_bad', 'assets/images/score_prompt/UI_END_City_Title_Bad.png');
-    game.load.image('end_city_txt_normal', 'assets/images/score_prompt/UI_END_City_sentence_Normal.png');
-    game.load.image('end_city_title_normal', 'assets/images/score_prompt/UI_END_City_Title_Normal.png');
-    game.load.image('end_city_txt_good', 'assets/images/score_prompt/UI_END_City_sentence_Good.png');
-    game.load.image('end_city_title_good', 'assets/images/score_prompt/UI_END_City_Title_Good.png');
+  //   game.load.image('end_city_txt_bad', 'assets/images/score_prompt/UI_END_City_sentence_Bad.png');
+  //   game.load.image('end_city_title_bad', 'assets/images/score_prompt/UI_END_City_Title_Bad.png');
+  //   game.load.image('end_city_txt_normal', 'assets/images/score_prompt/UI_END_City_sentence_Normal.png');
+  //   game.load.image('end_city_title_normal', 'assets/images/score_prompt/UI_END_City_Title_Normal.png');
+  //   game.load.image('end_city_txt_good', 'assets/images/score_prompt/UI_END_City_sentence_Good.png');
+  //   game.load.image('end_city_title_good', 'assets/images/score_prompt/UI_END_City_Title_Good.png');
 
-    // score UI buttons
-    game.load.image('end_button_plan', 'assets/images/score_prompt/buttons/UI_END_Plan-page.png');
-    game.load.image('end_button_replay', 'assets/images/score_prompt/buttons/UI_END_Replay.png');
-    game.load.image('end_button_share', 'assets/images/score_prompt/buttons/UI_END_Share.png');
-    game.load.spritesheet('end_button_back', 'assets/images/score_prompt/buttons/UI_END_Button.png', 385, 122);
-    game.load.spritesheet('end_button_gicuma', 'assets/images/score_prompt/buttons/UI_END_Gicuma.png', 75, 62.5);
-    game.load.spritesheet('end_button_fb', 'assets/images/score_prompt/buttons/UI_END_facebook.png', 50, 62);
-  },
+  //   // score UI buttons
+  //   game.load.image('end_button_plan', 'assets/images/score_prompt/buttons/UI_END_Plan-page.png');
+  //   game.load.image('end_button_replay', 'assets/images/score_prompt/buttons/UI_END_Replay.png');
+  //   game.load.image('end_button_share', 'assets/images/score_prompt/buttons/UI_END_Share.png');
+  //   game.load.spritesheet('end_button_back', 'assets/images/score_prompt/buttons/UI_END_Button.png', 385, 122);
+  //   game.load.spritesheet('end_button_gicuma', 'assets/images/score_prompt/buttons/UI_END_Gicuma.png', 75, 62.5);
+  //   game.load.spritesheet('end_button_fb', 'assets/images/score_prompt/buttons/UI_END_facebook.png', 50, 62);
+  // },
 
   loadWorkImages:function(){
     // work choose scene
@@ -539,63 +539,63 @@ Loading.prototype = {
     game.load.image('dogschool_bg_blur', 'assets/images/work/dog_school/UI_END_darken_blur.png');
 
   },
+
   loadEventImages:function(){
-    this.loadWorkEventIamges();
+    // this.loadWorkEventIamges();
     // this.loadLeisureEventImages();
     // this.loadHomeEventImages();
   },
 
+  // loadWorkEventIamges:function(){
+  //   // arcade
+  //   game.load.image('event_04', 'assets/images/events/work/arcade/04_step_drop.png');
+  //   game.load.image('event_05', 'assets/images/events/work/arcade/05_shop_stuff.png');
+  //   game.load.image('event_06', 'assets/images/events/work/arcade/06_low_sign.png');
+  //   game.load.image('event_07', 'assets/images/events/work/arcade/07_messy_motors.png');
+  //   game.load.image('event_08', 'assets/images/events/work/arcade/08_sidewalk_bike.png');
+  //   game.load.image('event_67', 'assets/images/events/work/arcade/67_messy_garbage.png');
+  //   game.load.image('event_68', 'assets/images/events/work/arcade/68_broken_slope.png');
+  //   game.load.image('event_69', 'assets/images/events/work/arcade/69_truck_back.png');
 
-  loadWorkEventIamges:function(){
-    // arcade
-    game.load.image('event_04', 'assets/images/events/work/arcade/04_step_drop.png');
-    game.load.image('event_05', 'assets/images/events/work/arcade/05_shop_stuff.png');
-    game.load.image('event_06', 'assets/images/events/work/arcade/06_low_sign.png');
-    game.load.image('event_07', 'assets/images/events/work/arcade/07_messy_motors.png');
-    game.load.image('event_08', 'assets/images/events/work/arcade/08_sidewalk_bike.png');
-    game.load.image('event_67', 'assets/images/events/work/arcade/67_messy_garbage.png');
-    game.load.image('event_68', 'assets/images/events/work/arcade/68_broken_slope.png');
-    game.load.image('event_69', 'assets/images/events/work/arcade/69_truck_back.png');
+  //   // crossroad
+  //   game.load.image('event_01', 'assets/images/events/work/crossroad/01_dog_stop.png');
+  //   game.load.image('event_02', 'assets/images/events/work/crossroad/02_loud_noise.png');
+  //   game.load.image('event_03', 'assets/images/events/work/crossroad/03_motor_turn.png');
 
-    // crossroad
-    game.load.image('event_01', 'assets/images/events/work/crossroad/01_dog_stop.png');
-    game.load.image('event_02', 'assets/images/events/work/crossroad/02_loud_noise.png');
-    game.load.image('event_03', 'assets/images/events/work/crossroad/03_motor_turn.png');
+  //   // bus_station
+  //   game.load.image('event_16', 'assets/images/events/work/bus_station/16_check_time.png');
+  //   game.load.image('event_17', 'assets/images/events/work/bus_station/17_check_bus.png');
+  //   game.load.image('event_18', 'assets/images/events/work/bus_station/18_bus_drove_away.png');
 
-    // bus_station
-    game.load.image('event_16', 'assets/images/events/work/bus_station/16_check_time.png');
-    game.load.image('event_17', 'assets/images/events/work/bus_station/17_check_bus.png');
-    game.load.image('event_18', 'assets/images/events/work/bus_station/18_bus_drove_away.png');
+  //   // bus
+  //   game.load.image('event_20', 'assets/images/events/work/bus/20_find_seat.png');
+  //   game.load.image('event_21', 'assets/images/events/work/bus/21_too_stink.png');
+  //   game.load.image('event_22', 'assets/images/events/work/bus/22_specific_location.png');
+  //   game.load.image('event_23', 'assets/images/events/work/bus/23_dog_touched.png');
+  //   game.load.image('event_24', 'assets/images/events/work/bus/24_if_bite.png');
+  //   game.load.image('event_25', 'assets/images/events/work/bus/25_good_driver.png');
 
-    // bus
-    game.load.image('event_20', 'assets/images/events/work/bus/20_find_seat.png');
-    game.load.image('event_21', 'assets/images/events/work/bus/21_too_stink.png');
-    game.load.image('event_22', 'assets/images/events/work/bus/22_specific_location.png');
-    game.load.image('event_23', 'assets/images/events/work/bus/23_dog_touched.png');
-    game.load.image('event_24', 'assets/images/events/work/bus/24_if_bite.png');
-    game.load.image('event_25', 'assets/images/events/work/bus/25_good_driver.png');
-
-    //mrt_station
-    game.load.image('event_09', 'assets/images/events/work/mrt_station/09_crowded_gate.png');
-    game.load.image('event_10', 'assets/images/events/work/mrt_station/10_elevator_down.png');
-    game.load.image('event_11', 'assets/images/events/work/mrt_station/11_staff_help.png');
-    game.load.image('event_12', 'assets/images/events/work/mrt_station/12_people_pet_dog.png');
+  //   //mrt_station
+  //   game.load.image('event_09', 'assets/images/events/work/mrt_station/09_crowded_gate.png');
+  //   game.load.image('event_10', 'assets/images/events/work/mrt_station/10_elevator_down.png');
+  //   game.load.image('event_11', 'assets/images/events/work/mrt_station/11_staff_help.png');
+  //   game.load.image('event_12', 'assets/images/events/work/mrt_station/12_people_pet_dog.png');
     
-    // mrt
-    game.load.image('event_13', 'assets/images/events/work/mrt/13_mrt_seats.png');
-    game.load.image('event_14', 'assets/images/events/work/mrt/14_tail_stepped.png');
-    game.load.image('event_15', 'assets/images/events/work/mrt/15_scared_kid.png');
+  //   // mrt
+  //   game.load.image('event_13', 'assets/images/events/work/mrt/13_mrt_seats.png');
+  //   game.load.image('event_14', 'assets/images/events/work/mrt/14_tail_stepped.png');
+  //   game.load.image('event_15', 'assets/images/events/work/mrt/15_scared_kid.png');
 
-    // fast_food
-    game.load.image('event_26', 'assets/images/events/work/fast_food/26_kid_feed.png');
-    game.load.image('event_27', 'assets/images/events/work/fast_food/27_guest_talk.png');
-    game.load.image('event_28', 'assets/images/events/work/fast_food/28_clerk_help.png');
+  //   // fast_food
+  //   game.load.image('event_26', 'assets/images/events/work/fast_food/26_kid_feed.png');
+  //   game.load.image('event_27', 'assets/images/events/work/fast_food/27_guest_talk.png');
+  //   game.load.image('event_28', 'assets/images/events/work/fast_food/28_clerk_help.png');
 
-    // breakfast
-    game.load.image('event_29', 'assets/images/events/work/breakfast/29_door_bike_motor.png');
-    game.load.image('event_30', 'assets/images/events/work/breakfast/30_store_take_arcade.png');
-    game.load.image('event_31', 'assets/images/events/work/breakfast/31_guest_feed_dog.png');
-  },
+  //   // breakfast
+  //   game.load.image('event_29', 'assets/images/events/work/breakfast/29_door_bike_motor.png');
+  //   game.load.image('event_30', 'assets/images/events/work/breakfast/30_store_take_arcade.png');
+  //   game.load.image('event_31', 'assets/images/events/work/breakfast/31_guest_feed_dog.png');
+  // },
 
   startMenu: function(){
     // whether to jump set in Json
