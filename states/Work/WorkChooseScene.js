@@ -129,11 +129,10 @@ WorkChooseScene.prototype = {
   },
 
   create: function () {
-    this.CheckMusic();
+    game.time.events.add(Phaser.Timer.SECOND * 1, this.CheckMusic, this);
   },
 
   CheckMusic:function(){
-    
     if(bgmPlaying){
       bgmPlayer.fadeOut(musicFadeSpeed);
       bgmPlaying = false;

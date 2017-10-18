@@ -299,6 +299,13 @@ HomeScene.prototype = {
     }
   },
 
+  FadeOutBgm:function(){
+    if(bgmPlaying){
+      bgmPlayer.fadeOut(musicFadeSpeed);
+      bgmPlaying = false;
+    }
+  },
+
   addClickCount:function(){
     // add clickCount and check if all clicked
     this.clickCount++;
@@ -322,6 +329,7 @@ HomeScene.prototype = {
 
     // 3 choice icons
     // this.enableIconButtons();
+
     this.iconWorkIn.start();
     this.iconLeisureIn.start();
     this.iconHometownIn.start();
@@ -332,6 +340,8 @@ HomeScene.prototype = {
     // fade in locks
     this.leisureLockIn.start();
     this.hometownLockIn.start();
+
+    this.FadeOutBgm();
 
     game.time.events.add(Phaser.Timer.SECOND * 1, this.enableIconButtons, this);
   },
