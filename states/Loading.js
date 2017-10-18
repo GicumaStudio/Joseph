@@ -139,9 +139,9 @@ Loading.prototype = {
 
   loadEverything: function(){
     this.loadScripts();
-    this.loadBgm();
     this.loadImages();
     this.loadSprites();
+    this.loadBgm();
   },
 
   addGameStates: function () {
