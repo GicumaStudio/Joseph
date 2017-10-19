@@ -604,8 +604,8 @@ HomeScene.prototype = {
 
     //delay and switch state
     setTimeout(function () {
-      game.state.start("DogSchoolScene");
-      // game.state.start("WorkChooseScene");
+      // game.state.start("DogSchoolScene");
+      game.state.start("WorkChooseScene");
     }, this.switchStateDelay); 
   },
 

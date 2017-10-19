@@ -317,6 +317,9 @@ ArcadeScene.prototype = {
 
 
   init: function () {
+    console.log("Score!");
+    console.log(total_score);
+    
     // load settings from json
     this.loadJson();
 

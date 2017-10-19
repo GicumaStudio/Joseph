@@ -315,6 +315,9 @@ DogSchoolScene.prototype = {
   },
 
   init: function () {
+    console.log("Score!");
+    console.log(total_score);
+
     // load settings from json
     this.loadJson();
     this.CheckScore();
@@ -685,7 +688,8 @@ DogSchoolScene.prototype = {
     bgmPlayer.stop();
     // bgmPlayer.fadeOut(musicFadeSpeed);
 
-    // Phaser.signal.removeAll();
+    this.startingTxtInd = 0;
+    this.startingTxtList.styles.ind = 0;
   },
 
   checkStartingTxtStyleInd:function(i_id){
@@ -714,14 +718,7 @@ DogSchoolScene.prototype = {
   },
 
   switchScene:function(){
-    this.ResetVars();
-
     game.state.start("GameMenu");
-  },
-
-  ResetVars:function(){
-    this.startingTxtInd = 0;
-    this.startingTxtList.styles.ind = 0;
   },
 
   activateNextButton:function(){
