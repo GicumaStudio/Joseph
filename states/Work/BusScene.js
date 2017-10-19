@@ -352,7 +352,7 @@ BusScene.prototype = {
   },
   description_box:'arcade_description_box',
   mood:{
-    location:{x:210, y:190},
+    location:{x:799, y:258},
     status:'good'
   },
 

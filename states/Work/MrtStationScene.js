@@ -279,7 +279,7 @@ MrtStationScene.prototype = {
   },
   description_box:'arcade_description_box',
   mood:{
-    location:{x:210, y:190},
+    location:{x:317, y:295},
     status:'good'
   },
 

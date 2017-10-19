@@ -225,7 +225,7 @@ FastfoodScene.prototype = {
   },
   description_box:'arcade_description_box',
   mood:{
-    location:{x:210, y:190},
+    location:{x:305, y:396},
     status:'good'
   },
 
