@@ -721,7 +721,7 @@ DogSchoolScene.prototype = {
 
   ResetVars:function(){
     this.startingTxtInd = 0;
-    this.styles.ind = 0;
+    this.startingTxtList.styles.ind = 0;
   },
 
   activateNextButton:function(){
