@@ -9,7 +9,7 @@ var DogSchoolScene = function() {};
 DogSchoolScene.prototype = {
   score_ind: null, // 1, 2, 3  for 1, 2, 3 stars
   ind_to_friendliness:{1: 'unfriendly', 2: 'normal', 3:'friendly'},
-  score_level:[4, 8],  //  smaller than 4, smaller than 8?  
+  score_level:[-1, 1],  //  smaller than -1, smaller than 1?  
   // startDelay:200,
   startDelay:2000,
   bg:{
