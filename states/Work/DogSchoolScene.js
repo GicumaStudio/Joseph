@@ -714,7 +714,14 @@ DogSchoolScene.prototype = {
   },
 
   switchScene:function(){
+    this.ResetVars();
+
     game.state.start("GameMenu");
+  },
+
+  ResetVars:function(){
+    this.startingTxtInd = 0;
+    this.styles.ind = 0;
   },
 
   activateNextButton:function(){
