@@ -8,11 +8,11 @@ ArcadeTransition.prototype = {
   },
   josephPos: {
     top:{
-      x: 1028,
+      x: WIDTH/2,
       y: 816
     },
     bottom:{
-      x: 1028,
+      x: WIDTH/2,
       y: 841
     },
     speed: 900,
