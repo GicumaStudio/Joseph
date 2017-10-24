@@ -842,7 +842,6 @@ BusScene.prototype = {
 
   setRandomEvent:function(){
     // set random number, test first
-    // this.choseEventNumber = 3;
     // this.choseEventNumber = 0;
     this.choseEventNumber = utils.getRandomInt(this.events.size);
 

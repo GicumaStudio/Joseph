@@ -811,7 +811,7 @@ CrossroadScene.prototype = {
 
   setRandomEvent:function(){
     // set random number, test first
-    // this.choseEventNumber = 3;
+    // this.choseEventNumber = 2;
     this.choseEventNumber = utils.getRandomInt(this.events.size);
 
     // set mood in front if no options

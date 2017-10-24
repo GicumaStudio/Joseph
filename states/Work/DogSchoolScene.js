@@ -129,11 +129,8 @@ DogSchoolScene.prototype = {
     3:{
       0:{0:{txt: null, tweenIn: null, tweenOut:null},1:{txt: null, tweenIn: null, tweenOut:null}},
       1:{0:{txt: null, tweenIn: null, tweenOut:null},1:{txt: null, tweenIn: null, tweenOut:null},2:{txt: null, tweenIn: null, tweenOut:null}},
-      2:{0:{txt: null, tweenIn: null, tweenOut:null},1:{txt: null, tweenIn: null, tweenOut:null}},
-      3:{0:{txt: null, tweenIn: null, tweenOut:null},1:{txt: null, tweenIn: null, tweenOut:null},2:{txt: null, tweenIn: null, tweenOut:null}},
-      4:{0:{txt: null, tweenIn: null, tweenOut:null},1:{txt: null, tweenIn: null, tweenOut:null},2:{txt: null, tweenIn: null, tweenOut:null}},
-      5:{0:{txt: null, tweenIn: null, tweenOut:null},1:{txt: null, tweenIn: null, tweenOut:null},2:{txt: null, tweenIn: null, tweenOut:null}},
-      6:{0:{txt: null, tweenIn: null, tweenOut:null},1:{txt: null, tweenIn: null, tweenOut:null}},
+      2:{0:{txt: null, tweenIn: null, tweenOut:null},1:{txt: null, tweenIn: null, tweenOut:null},2:{txt: null, tweenIn: null, tweenOut:null}},
+      3:{0:{txt: null, tweenIn: null, tweenOut:null},1:{txt: null, tweenIn: null, tweenOut:null}}
     }
   },
   paperBack:{
