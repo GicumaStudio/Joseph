@@ -249,7 +249,7 @@ Loading.prototype = {
     // home items
     game.load.spritesheet('home_document_sprite', 'assets/images/home/Document_Sprite.png', 219, 176);
     game.load.spritesheet('home_saddle_sprite', 'assets/images/home/saddle_sprite.png', 306, 158);
-    game.load.spritesheet('home_stick_sprite', 'assets/images/home/guidecane_sprite.png', 120, 240);
+    game.load.spritesheet('home_stick_sprite', 'assets/images/home/guidecane_sprite.png', 243, 243);
     game.load.spritesheet('home_hat_sprite', 'assets/images/home/hat_sprite.png', 93, 199);
     game.load.spritesheet('home_raincoat_sprite', 'assets/images/home/raincoat_sprite.png', 148, 78);
     game.load.spritesheet('home_umbrella_sprite', 'assets/images/home/umbrella_sprite.png', 57, 216);
@@ -466,8 +466,10 @@ Loading.prototype = {
     game.load.image('mrtstation_bg_good', 'assets/images/work/mrt_station/bgs/MRT_station_ord.png');
     game.load.image('mrtstation_bg_good_bright', 'assets/images/work/mrt_station/bgs/MRT_station_ord_bright.png');
     game.load.image('mrtstation_bg_good_gate_woman', 'assets/images/work/mrt_station/bgs/MRT_station_ord_gate_woman.png');
+    game.load.image('mrtstation_bg_good_gate_kid', 'assets/images/work/mrt_station/bgs/MRT_station_ord_gate_kid.png');
     game.load.image('mrtstation_bg_bad', 'assets/images/work/mrt_station/bgs/MRT_station_bad.png');
     game.load.image('mrtstation_bg_bad_gate_woman', 'assets/images/work/mrt_station/bgs/MRT_station_bad_gate_woman.png');
+    game.load.image('mrtstation_bg_bad_kid', 'assets/images/work/mrt_station/bgs/MRT_station_bad_1.png');
     // top left
     game.load.image('mrtstation_status', 'assets/images/arcade/status.png');
     game.load.image('mrtstation_sun_icon', 'assets/images/arcade/sunny.png');

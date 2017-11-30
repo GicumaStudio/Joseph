@@ -9,7 +9,7 @@ MrtStationScene.prototype = {
   nextScene:'MrtStationTransition',
   musicName:'work_mrt_station',
   background_good:{
-    size: 3,
+    size: 4,
     0:{
       name:'mrtstation_bg_good',
       sprite: null,
@@ -39,10 +39,20 @@ MrtStationScene.prototype = {
       center_anchor: true,
       tweenIn: null,
       tweenOut: null
+    },
+    3:{
+      name:'mrtstation_bg_good_gate_kid',
+      sprite: null,
+      position:{
+        x: 1722,y: 561
+      },
+      center_anchor: true,
+      tweenIn: null,
+      tweenOut: null
     }
   },
   background_bad:{
-    size: 2,
+    size: 3,
     0:{
       name:'mrtstation_bg_bad',
       sprite: null,
@@ -58,6 +68,16 @@ MrtStationScene.prototype = {
       sprite: null,
       position:{
         x: 784,y: 855
+      },
+      middle_anchor: true,
+      tweenIn: null,
+      tweenOut: null
+    },
+    2:{
+      name:'mrtstation_bg_bad_kid',
+      sprite: null,
+      position:{
+        x: 1722,y: 561
       },
       middle_anchor: true,
       tweenIn: null,
