@@ -296,7 +296,7 @@ Loading.prototype = {
     // mrt station
     game.load.spritesheet('mrtstation_brighter_button', 'assets/images/work/mrt_station/brighter/MRT_station_brighter_button.png', 143, 126);
     game.load.spritesheet('mrtstation_brighter_gate', 'assets/images/work/mrt_station/brighter/MRT_station_brighter_gate.png', 494, 443);
-    game.load.spritesheet('mrtstation_brighter_guide_bricks', 'assets/images/work/mrt_station/brighter/MRT_station_brighter_guide_bricks.png', 1688, 299);
+    game.load.spritesheet('mrtstation_brighter_guide_bricks', 'assets/images/work/mrt_station/brighter/MRT_station_brighter_guide_bricks.png', 1920, 345);
     game.load.spritesheet('mrtstation_brighter_manager', 'assets/images/work/mrt_station/brighter/MRT_station_brighter_manager.png', 208, 253);
 
     // mrt

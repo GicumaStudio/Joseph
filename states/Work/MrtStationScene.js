@@ -69,7 +69,7 @@ MrtStationScene.prototype = {
       position:{
         x: 784,y: 855
       },
-      middle_anchor: true,
+      center_anchor: true,
       tweenIn: null,
       tweenOut: null
     },
@@ -79,7 +79,7 @@ MrtStationScene.prototype = {
       position:{
         x: 1722,y: 561
       },
-      middle_anchor: true,
+      center_anchor: true,
       tweenIn: null,
       tweenOut: null
     }
@@ -165,7 +165,7 @@ MrtStationScene.prototype = {
       2:{
         name:'guide_bricks',
         position:{
-          x: 844,y: 854
+          x: 955,y: 831
         },
         description:{
           group: null,
@@ -480,7 +480,9 @@ MrtStationScene.prototype = {
       
       // set anchor, alpha; disabled in diableAllButtons
       this.brighter_items.item[i].button.alpha = 0;
-      this.brighter_items.item[i].button.anchor.setTo(0.5);
+      
+      utils.centerGameObjects([this.brighter_items.item[i].button]);
+      // this.brighter_items.item[i].button.anchor.setTo(0.5);
 
     }
   },
